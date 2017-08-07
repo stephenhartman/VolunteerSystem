@@ -78,6 +78,7 @@
             @endif
 
             <div class="content">
+
                 <div class= "title">
                     Group Members
                 </div>
