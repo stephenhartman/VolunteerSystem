@@ -39,26 +39,39 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 
 ### Mac OSX
 
-[1] Clone repository into project folder of choice
+1. Clone repository into project folder of choice
+
 `git clone https://github.com/stephenhartman/VolunteerSystem`
-[2] Install PHP
+
+2. Install PHP
+
 - Install [Homebrew](https://github.com/Homebrew/brew)
 `brew tap homebrew/hombrew-php`
-[3] Install [Composer](https://getcomposer.org/download/) Dependency Manager
+
+3. Install [Composer](https://getcomposer.org/download/) Dependency Manager
+
 ```
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
-[4] Download Laravel using Composer
+
+4. Download Laravel using Composer
+
 `composer global require "laravel/installer"`
+
 - Add $HOME/.composer/vendor/bin to $PATH in terminal rc file (e.g. ~/.bashrc)
-[5] Install npm in project folder
+
+5. Install npm in project folder
+
 ```
 brew install npm
 brew install node
 ```
-[6] Install [Laravel Mix](https://laravel.com/docs/5.4/mix) in project folder
+
+6. Install [Laravel Mix](https://laravel.com/docs/5.4/mix) in project folder
+
 `npm install`
+
 `np run watch` will monitor all relevant files for changes to compile
