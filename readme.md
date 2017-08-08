@@ -1,12 +1,5 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
 ## About Volunteer System
 
 This is a pre-semester project for Senior Project CIS4327.
@@ -39,11 +32,11 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 
 ### Mac OSX
 
-1. Clone repository into project folder of choice
+1. Clone [VolunteerSystem repository](https://github.com/stephenhartman/VolunteerSystem) into project folder of choice
 
 `git clone https://github.com/stephenhartman/VolunteerSystem`
 
-2. Install PHP
+2. Install [PHP](http://php.net/)
 
 - Install [Homebrew](https://github.com/Homebrew/brew)
 `brew tap homebrew/hombrew-php`
@@ -57,7 +50,7 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
 
-4. Download Laravel using Composer
+4. Download [Laravel](https://laravel.com/) using Composer
 
 `composer global require "laravel/installer"`
 
