@@ -24,7 +24,7 @@ class CreateEmergencyContactsTable extends Migration
             $table->string('street');
             $table->string('city');
             $table->string('state');
-            $table->mediumInteger('zipcode');
+            $table->string('zipcode');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ class CreateVolunteerCentersTable extends Migration
             $table->string('street');
             $table->string('city');
             $table->string('state');
-            $table->mediumInteger('zipcode');
+            $table->string('zipcode');
             $table->string('organization');
             $table->text('description');
             $table->timestamps();
