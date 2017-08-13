@@ -25,10 +25,10 @@ class CreateMembersTable extends Migration
             $table->string('street');
             $table->string('city');
             $table->string('state');
-            $table->mediumInteger('zipcode');
-            $table->string('home_phone', 9);
-            $table->string('work_phone', 9);
-            $table->string('cell_phone', 9);
+            $table->string('zipcode');
+            $table->string('home_phone');
+            $table->string('work_phone');
+            $table->string('cell_phone');
             $table->boolean('drivers_license');
             $table->boolean('ss_card');
             $table->string('approval_status');
