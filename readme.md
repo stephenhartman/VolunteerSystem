@@ -77,3 +77,4 @@ brew install node
 - Grant permissions for that user `GRANT ALL PRIVILEGES ON vol_db . * TO 'newuser'@'localhost';`  The first variable after `ON` is the database and the second variable after `.` is the table, * for all tables.
 - Reset permissions `FLUSH PRIVILEGES;`
 - Run migrations `php artisan migrate`
+- Seed data `php artisan db:seed`
