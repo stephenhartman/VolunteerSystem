@@ -14,3 +14,7 @@
 Route::get('/', 'PagesController@home');
 
 Route::get('about', 'PagesController@about');
+
+Route::get('members', 'MembersController@index');
+
+Route::get('members/{member}', 'MembersController@show');
