@@ -76,4 +76,4 @@ brew install node
 - Make sure you create the user, example `mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';`
 - Grant permissions for that user `GRANT ALL PRIVILEGES ON vol_db . * TO 'newuser'@'localhost';`  The first variable after `ON` is the database and the second variable after `.` is the table, * for all tables.
 - Reset permissions `FLUSH PRIVILEGES;`
-- Run migrations
+- Run migrations `php artisan migrate`
