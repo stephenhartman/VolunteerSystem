@@ -13,9 +13,9 @@ class AddEmergencyContactsRelationshipToMembers extends Migration
      */
     public function up()
     {
-        Schema::table('emergency_contacts', function (Blueprint $table) {
-            $table->integer('member_id')->unsigned();
-            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+        Schema::table('members', function (Blueprint $table) {
+            $table->integer('emergency_contact_id')->unsigned();
+            $table->foreign('emergency_contact_id')->references('id')->on('emergency_contacts')->onDelete('cascade');
         });
     }
 
@@ -26,9 +26,9 @@ class AddEmergencyContactsRelationshipToMembers extends Migration
      */
     public function down()
     {
-        Schema::table('emergency_contacts', function (Blueprint $table) {
-            $table->dropForeign(['member_id']);
-            $table->dropColumn(['member_id']);
+        Schema::table('members', function (Blueprint $table) {
+            $table->dropForeign(['emergency_contact_id']);
+            $table->dropColumn(['emergency_contact_id']);
         });
     }
 }
