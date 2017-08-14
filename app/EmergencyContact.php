@@ -8,7 +8,7 @@ class EmergencyContact extends Model
 {
 
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'home_phone', 'work_phone', 'cell phone', 'street', 'city', 'state', 'zipcode'
+        'first_name', 'last_name', 'email', 'home_phone', 'work_phone', 'cell phone', 'street', 'city', 'state', 'zipcode', 'member_id',
     ];
 
     public function member()

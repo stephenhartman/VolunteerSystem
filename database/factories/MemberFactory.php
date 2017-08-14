@@ -23,7 +23,7 @@ $factory->define(App\Member::class, function (Faker\Generator $faker) {
             return factory(App\User::class)->create()->id;
         },
         'emergency_contact_id' => function() {
-            return factory(App\EmergencyContact::class)->create()->id;
+            return factory(App\EmergencyContact::class)->create(['member_id'=>'id']);;
         }
     ];
 });
