@@ -27,8 +27,8 @@ class AddUserRelationshipsToMembers extends Migration
     public function down()
     {
         Schema::table('members', function (Blueprint $table) {
-            $table->dropForeign('user_id');
-            $table->dropColumn('user_id');
+            $table->dropForeign(['user_id']);
+            $table->dropColumn(['user_id']);
         });
     }
 }
