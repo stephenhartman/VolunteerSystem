@@ -2,11 +2,7 @@
 
 @section('content')
 
-    @if (Session::has('message'))
-        <div class="alert alert-info">{{ Session::get('message') }}</div>
-    @endif
-
-    <h2>Volunteer Information</h2>
+    <h3>Volunteer Information</h3>
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
