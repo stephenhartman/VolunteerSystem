@@ -6,10 +6,10 @@ This is a pre-semester project for Senior Project CIS4327.
 
 ### Group Members
 
-- Kevin Bell
+- [Kevin Bell](https://github.com/jawsofdoom)
 - [Andrew Greer](https://github.com/Initech9)
 - [Stephen Hartman](https://github.com/stephenhartman)
-- Lindsey Wanta
+- [Lindsey Wanta](https://github.com/lindseywanta)
 
 
 ## Laravel
