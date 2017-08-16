@@ -9,15 +9,37 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     </head>
-    <header>
-
-        @yield('header');
-
-    </header>
     <body>
+        <div class="container-fluid">
+            <header class="navbar navbar-fixed-top">
+                <nav class="navbar bg-faded">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav nav">
+                            <li>
+                                <a class="btn btn-info" href="{{ URL::to('members/') }}">Manage Volunteers</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-info" href="#">Manage Opportunities</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline navform my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
 
-        @yield('content');
+                @yield('header');
 
+            </header>
+        </div>
+        <div class="container-fluid">
+            <div id="main">
+
+                @yield('content');
+
+            </div>
+        </div>
     </body>
     <footer>
 

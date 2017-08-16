@@ -9,7 +9,8 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 html, body {
-    background-color: #fff;
+    padding-top: 50px;
+    background-color: #F7F7F9;
     color: #636b6f;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
@@ -57,4 +58,12 @@ html, body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+.nav > li {
+    padding: 5px 15px;
+}
+
+.navform {
+    padding-top: 12px;
 }
