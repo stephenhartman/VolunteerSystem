@@ -27,7 +27,7 @@
             <tr>
                 <td>{{ $member->first_name }}</td>
                 <td>{{ $member->last_name }}</td>
-                <td>{{ $member->email }}</td>
+                <td>{{ Html::mailto($member->email) }}</td>
                 <td>{{ $member->username }}</td>
                 <td>{{ $member->street }}</td>
                 <td>{{ $member->city }}</td>
@@ -74,7 +74,7 @@
                 <tr>
                     <td>{{ $contact->first_name }}</td>
                     <td>{{ $contact->last_name }}</td>
-                    <td>{{ $contact->email }}</td>
+                    <td>{{ Html::mailto($contact->email) }}</td>
                     <td>{{ $contact->street }}</td>
                     <td>{{ $contact->city }}</td>
                     <td>{{ $contact->state }}</td>
