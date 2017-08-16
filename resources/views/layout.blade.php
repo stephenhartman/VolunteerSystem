@@ -12,14 +12,17 @@
     <body>
         <div class="container-fluid">
             <header class="navbar navbar-fixed-top">
-                <nav class="navbar bg-faded">
+                <nav class="navbar navbar-inverse bg-faded">
                     <div class="container-fluid">
                         <ul class="navbar-nav nav">
                             <li>
-                                <a class="btn btn-info" href="{{ URL::to('members/') }}">Manage Volunteers</a>
+                                <a class="btn btn-secondary" href="{{ URL::to('members/') }}">Manage Volunteers</a>
                             </li>
                             <li>
-                                <a class="btn btn-info" href="#">Manage Opportunities</a>
+                                <a class="btn btn-secondary" href="#">Manage Opportunities</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-secondary" href="about">About Us</a>
                             </li>
                         </ul>
                         <form class="form-inline navform my-2 my-lg-0">
@@ -28,22 +31,17 @@
                         </form>
                     </div>
                 </nav>
-
-                @yield('header');
-
             </header>
         </div>
         <div class="container-fluid">
             <div id="main">
-
                 @yield('content');
-
             </div>
         </div>
     </body>
     <footer>
-
-        @yield('footer');
-
+        <div class="container-fluid">
+            <div id="copyright text-right">&copy; Copyright 2017 Initech</div>
+        </div>
     </footer>
 </html>
