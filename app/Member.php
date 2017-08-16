@@ -24,11 +24,6 @@ class Member extends Model
         'password',
     ];
 
-    public function emergency_contacts()
-    {
-        return $this->hasMany(EmergencyContact::class);
-    }
-
     public function path()
     {
         return '/members/' . $this->id;
