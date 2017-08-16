@@ -22,7 +22,7 @@
                                 <a class="btn btn-secondary" href="#">Manage Opportunities</a>
                             </li>
                             <li>
-                                <a class="btn btn-secondary" href="about">About Us</a>
+                                <a class="btn btn-secondary" href="{{ URL::to('about') }}">About Us</a>
                             </li>
                         </ul>
                         <form class="form-inline navform my-2 my-lg-0">
@@ -34,8 +34,11 @@
             </header>
         </div>
         <div class="container-fluid">
+            @if (Session::has('message'))
+                <div class="alert alert-info">{{ Session::get('message') }}</div>
+            @endif
             <div id="main">
-                @yield('content');
+                @yield('content')
             </div>
         </div>
     </body>
