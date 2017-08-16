@@ -14,5 +14,6 @@ $factory->define(App\EmergencyContact::class, function (Faker\Generator $faker) 
         'home_phone' => $faker->phoneNumber,
         'work_phone' => $faker->phoneNumber,
         'cell_phone' => $faker->phoneNumber,
+        'member_id' => rand(1,10)
     ];
 });

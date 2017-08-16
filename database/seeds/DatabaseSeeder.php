@@ -11,8 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $members = factory(App\Member::class, 10)->create();
-        $interests = factory(App\Interests::class, 30)->create();
+        $members = factory(App\Member::class, 25)->create();
+        $interests = factory(App\Interests::class, 50)->create();
+        $contacts = factory(App\EmergencyContact::class, 30)->create();
     }
 
 }
