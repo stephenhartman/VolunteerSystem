@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Member;
+use App\Opportunity;
 use Illuminate\Http\Request;
 
-class MemberController extends Controller
+class OpportunitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = Member::all();
-        return view('members.index', compact('members'));
+        $opportunities = Opportunity::all();
+        return view('opportunities.index', compact('opportunities'));
     }
 
     /**
@@ -25,7 +25,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('members.create');
+        return view('opportunities.create');
     }
 
     /**
@@ -42,33 +42,33 @@ class MemberController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Member  $member
+     * @param  \App\Opportunity  $opportunity
      * @return \Illuminate\Http\Response
      */
-    public function show(Member $member)
+    public function show(Opportunity $opportunity)
     {
-        return view('members.show', compact('member'));
+        return view('opportunities.show', compact('opportunity'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Member  $member
+     * @param  \App\Opportunity  $opportunity
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member)
+    public function edit(Opportunity $opportunity)
     {
-        return view('members.edit', compact('member'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Member  $member
+     * @param  \App\Opportunity  $opportunity
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
+    public function update(Request $request, Opportunity $opportunity)
     {
         //
     }
@@ -76,10 +76,10 @@ class MemberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Member  $member
+     * @param  \App\Opportunity  $opportunity
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member)
+    public function destroy(Opportunity $opportunity)
     {
         //
     }

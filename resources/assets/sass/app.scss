@@ -67,3 +67,11 @@ html, body {
 .navform {
     padding-top: 12px;
 }
+
+.row {
+  margin-left: 5px;
+}
+
+td:last-child {
+  white-space: nowrap;
+}
