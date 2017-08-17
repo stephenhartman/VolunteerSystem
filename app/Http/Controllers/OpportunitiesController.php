@@ -47,7 +47,7 @@ class OpportunitiesController extends Controller
      */
     public function show(Opportunity $opportunity)
     {
-        //
+        return view('opportunities.show', compact('opportunity'));
     }
 
     /**
