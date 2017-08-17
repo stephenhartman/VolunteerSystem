@@ -29,6 +29,16 @@ class Member extends Model
         return $this->hasMany(EmergencyContact::class);
     }
 
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
+    public function opportunities()
+    {
+        return $this->belongsToMany(Opportunity::class);
+    }
+
     public function path()
     {
         return '/members/' . $this->id;

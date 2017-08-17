@@ -18,7 +18,6 @@ class CreateOpportunitiesTable extends Migration
             $table->time('start_time');
             $table->time('end_time');
             $table->date('event_day');
-            $table->integer('volunteer_center_id')->unsigned();
             $table->timestamps();
         });
     }

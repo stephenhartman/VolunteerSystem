@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddVolunteerCenterRelationshipToOpportunities extends Migration
+class AddNameToOpportunities extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddVolunteerCenterRelationshipToOpportunities extends Migration
     public function up()
     {
         Schema::table('opportunities', function (Blueprint $table) {
-            $table->integer('volunteer_center_id')->unsigned();
-            $table->foreign('volunteer_center_id')->references('id')->on('volunteer_centers')->onDelete('cascade');
+            $table->string('name');
         });
     }
 
@@ -27,8 +26,7 @@ class AddVolunteerCenterRelationshipToOpportunities extends Migration
     public function down()
     {
         Schema::table('opportunities', function (Blueprint $table) {
-            $table->dropForeign(['volunteer_center_id']);
-            $table->dropColumn(['volunteer_center_id']);
+            $table->dropColumn('name');
         });
     }
 }

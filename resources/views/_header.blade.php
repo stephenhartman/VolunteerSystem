@@ -7,7 +7,7 @@
                         <a class="btn btn-secondary" href="{{ URL::to('members/') }}">Manage Volunteers</a>
                     </li>
                     <li>
-                        <a class="btn btn-secondary" href="#">Manage Opportunities</a>
+                        <a class="btn btn-secondary" href="{{ URL::to('opportunities/') }}">Manage Opportunities</a>
                     </li>
                     <li>
                         <a class="btn btn-secondary" href="{{ URL::to('about') }}">About Us</a>
