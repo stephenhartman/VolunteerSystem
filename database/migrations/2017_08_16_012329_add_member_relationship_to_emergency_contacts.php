@@ -17,7 +17,6 @@ class AddMemberRelationshipToEmergencyContacts extends Migration
             $table->integer('member_id')->unsigned();
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
         });
-        //
     }
 
     /**
