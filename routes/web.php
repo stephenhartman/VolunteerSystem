@@ -16,3 +16,13 @@ Route::get('/', 'PagesController@home');
 Route::get('about', 'PagesController@about');
 
 Route::resource('members', 'MemberController');
+
+Route::resource('opportunities', 'OpportunitiesController');
+
+Route::resource('schedules', 'SchedulesController');
+
+Route::resource('emergency_contacts', 'EmergencyContactController');
+
+Route::resource('interests', 'InterestsController');
+
+Route::resource('volunteer_centers', 'VolunteerCentersController');
