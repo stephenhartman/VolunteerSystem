@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddMemberRelationshipToEmergencyContacts extends Migration
+class AddMemberOpportunitiesForeign extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddMemberRelationshipToEmergencyContacts extends Migration
      */
     public function up()
     {
-        Schema::table('emergency_contacts', function (Blueprint $table) {
-            $table->integer('member_id')->unsigned();
+        Schema::table('member_opportunities', function (Blueprint $table) {
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            $table->foreign('opportunity_id')->references('id')->on('opportunities')->onDelete('cascade');
         });
     }
 
@@ -26,9 +26,9 @@ class AddMemberRelationshipToEmergencyContacts extends Migration
      */
     public function down()
     {
-        Schema::table('emergency_contacts', function (Blueprint $table) {
+        Schema::table('member_opportunities', function (Blueprint $table) {
             $table->dropForeign(['member_id']);
-            $table->dropColumn(['member_id']);
+            $table->dropForeign(['opportunity_id']);
         });
     }
 }
