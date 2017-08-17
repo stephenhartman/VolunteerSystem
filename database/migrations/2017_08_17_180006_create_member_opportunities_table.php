@@ -11,6 +11,8 @@ class CreateMemberOpportunitiesTable extends Migration
      *
      * @return void
      */
+    public function up()
+    {
         Schema::create('member_opportunities', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('member_id')->unsigned();
