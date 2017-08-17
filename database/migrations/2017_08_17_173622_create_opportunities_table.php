@@ -11,6 +11,8 @@ class CreateOpportunitiesTable extends Migration
      *
      * @return void
      */
+    public function up()
+    {
         Schema::create('opportunities', function (Blueprint $table) {
             $table->increments('id');
             $table->time('start_time');
