@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\VolunteerCenter;
 use Illuminate\Http\Request;
 
-class VolunteerCentersController extends Controller
+class VolunteerCenterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class VolunteerCentersController extends Controller
      */
     public function index()
     {
-        $volunteer_centers = Opportunity::all();
+        $volunteer_centers = VolunteerCenter::all();
         return view('volunteer_centers.index', compact('volunteer_centers'));
     }
 
@@ -45,9 +45,9 @@ class VolunteerCentersController extends Controller
      * @param  \App\VolunteerCenter  $volunteerCenter
      * @return \Illuminate\Http\Response
      */
-    public function show(VolunteerCenter $volunteerCenter)
+    public function show(VolunteerCenter $volunteer_center)
     {
-        //
+        return view('volunteer_centers.show', compact('volunteer_center'));
     }
 
     /**
