@@ -14,4 +14,9 @@ class VolunteerCenter extends Model
     {
         return $this->hasMany(Opportunity::class);
     }
+
+    public function path()
+    {
+        return '/volunteer_centers/' . $this->id;
+    }
 }

@@ -39,6 +39,11 @@ class Member extends Model
         return $this->belongsToMany(Opportunity::class);
     }
 
+    public function interests()
+    {
+        return $this->hasMany(Interests::class);
+    }
+
     public function path()
     {
         return '/members/' . $this->id;
