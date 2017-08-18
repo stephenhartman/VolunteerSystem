@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>Laravel Volunteer System</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
@@ -20,9 +20,9 @@
             </div>
         </div>
     </body>
-    <footer>
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-bottom">
             <div id="copyright text-right">&copy; Copyright 2017 Initech</div>
-        </div>
-    </footer>
+        </nav>
+    </div>
 </html>
