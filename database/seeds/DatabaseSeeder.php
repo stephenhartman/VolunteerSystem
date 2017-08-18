@@ -11,6 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $user = App\User::where('email', '=', 'admin@example.org');
+        if ($user === null) {
+            DB::table('users')->insert([
+                'name' => "Admin",
+                'email' => 'admin@example.com',
+                'password' => bcrypt('secret'),
+            ]);
+        }
         $members = factory(App\Member::class, 25)
             ->create()
             ->each(function ($m) {

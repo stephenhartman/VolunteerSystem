@@ -17,9 +17,9 @@
         <tbody>
             <tr>
                 <td>{{ $opportunity->name }}</td>
-                <td>{{ $opportunity->event_day }}</td>
-                <td>{{ $opportunity->start_time }}</td>
-                <td>{{ $opportunity->end_time }}</td>
+                <td>{{ \Carbon\Carbon::parse($opportunity->event_day)->format('m/d/Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($opportunity->start_time)->format('g:i A') }}</td>
+                <td>{{ \Carbon\Carbon::parse($opportunity->end_time)->format('g:i A') }}</td>
                 <td><a href="{{ URL::to('volunteer_centers/' . $opportunity->volunteer_center->id) }}">{{ $opportunity->volunteer_center->name }}</td>
                 <td>
                     <div class="row">
