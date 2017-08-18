@@ -17,10 +17,8 @@
             @endif
             <div id="main">
                 @yield('content')
-
             </div>
         </div>
-
+        @include('_footer')
     </body>
-
 </html>

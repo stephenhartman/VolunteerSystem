@@ -88,8 +88,7 @@ class MemberController extends Controller
         $member->drivers_license = $request->drivers_license;
         $member->ss_card = $request->ss_card;
         $member->approval_status = $request->approval_status;
-        $member->user_id = 51;
-
+        $member->user_id = 1;
 
         $member->save();
 

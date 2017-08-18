@@ -1,5 +1,6 @@
 <div class="container">
-    <nav class="navbar navbar-fixed-bottom">
+    <br><br>
+    <nav class="navbar">
         <div id="copyright text-right">&copy; Copyright 2017 Initech</div>
     </nav>
 </div>
