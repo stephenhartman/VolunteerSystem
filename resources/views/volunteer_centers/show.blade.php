@@ -52,9 +52,9 @@
             @foreach ($volunteer_center->opportunities as $opportunity)
                 <tr>
                 <td>{{ $opportunity->name }}</td>
-                <td>{{ $opportunity->event_day }}</td>
-                <td>{{ $opportunity->start_time }}</td>
-                <td>{{ $opportunity->end_time }}</td>
+                <td>{{ \Carbon\Carbon::parse($opportunity->event_day)->format('m/d/Y') }}</td>
+                <td>{{ \Carbon\Carbon::parse($opportunity->start_time)->format('g:i A') }}</td>
+                <td>{{ \Carbon\Carbon::parse($opportunity->end_time)->format('g:i A') }}</td>
                 </tr>
             @endforeach
         </tbody>
