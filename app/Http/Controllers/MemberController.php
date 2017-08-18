@@ -64,7 +64,35 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate
+        $this->validate($request, array(
+           'first_name' => 'required',
+           'last_name' => 'required',
+           'email' => 'email'
+        ));
+
+        //store
+        $member = new Member;
+        $member->first_name = $request->first_name;
+        $member->last_name = $request->last_name;
+        $member->email = $request->email;
+        $member->username = $request->username;
+        $member->password = $request->password;
+        $member->street = $request->street;
+        $member->city = $request->city;
+        $member->state = $request->state;
+        $member->zipcode = $request->zipcode;
+        $member->home_phone = $request->home_phone;
+        $member->work_phone = $request->work_phone;
+        $member->cell_phone = $request->cell_phone;
+        $member->drivers_license = $request->drivers_license;
+        $member->ss_card = $request->ss_card;
+        $member->approval_status = $request->approval_status;
+        $member->user_id = 51;
+
+
+        $member->save();
+
     }
 
     /**
