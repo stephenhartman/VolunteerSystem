@@ -25,4 +25,4 @@ Route::resource('emergency_contacts', 'EmergencyContactController');
 
 Route::resource('interests', 'InterestsController');
 
-Route::resource('volunteer_centers', 'VolunteerCentersController');
+Route::resource('volunteer_centers', 'VolunteerCenterController');
