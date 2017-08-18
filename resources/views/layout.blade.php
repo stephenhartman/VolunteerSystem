@@ -20,9 +20,9 @@
             </div>
         </div>
     </body>
-    <footer>
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-bottom">
             <div id="copyright text-right">&copy; Copyright 2017 Initech</div>
-        </div>
-    </footer>
+        </nav>
+    </div>
 </html>
