@@ -13,8 +13,12 @@
         @endif
 
         <div class="content">
+		<img src="{{url('/images/volunteer.jpg')}}" alt="Image"/>
             <div class="title m-b-md">
-                Laravel Volunteer System
+                
+				
+				
+				Laravel Volunteer System
             </div>
 
             <div class="links">
