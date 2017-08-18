@@ -48,16 +48,7 @@
                 @endif
                 <td>{{ ucfirst($member->approval_status) }}</td>
                 <td>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a class="btn btn-small btn-success" href="{{ URL::to('members/' . $member->id . '/edit') }}">Edit Volunteer</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a class="btn btn-small btn-warning" href="{{ URL::to('members/' . $member->id) }}" data-method="delete" data-token="{{ csrf_token() }}" data-confirm="Are you sure you want to delete this volunteer?">Delete Volunteer</a>
-                        </div>
-                    </div>
+                    <a class="btn btn-small btn-success" href="{{ URL::to('members/' . $member->id . '/edit') }}">Edit Volunteer</a>
                 </td>
             </tr>
         </tbody>
@@ -95,10 +86,4 @@
             @endforeach
         </tbody>
     </table>
-    <h3>Interests</h3>
-    <ul>
-        @foreach ($member->interests as $interest)
-            <li>{{ $interest->interest }}</li>
-        @endforeach
-    </ul>
 @stop

@@ -14,7 +14,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                Laravel
+                Laravel Volunteer System
             </div>
 
             <div class="links">
