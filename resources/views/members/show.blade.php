@@ -95,4 +95,10 @@
             @endforeach
         </tbody>
     </table>
+    <h3>Interests</h3>
+    <ul>
+        @foreach ($member->interests as $interest)
+            <li>{{ $interest->interest }}</li>
+        @endforeach
+    </ul>
 @stop

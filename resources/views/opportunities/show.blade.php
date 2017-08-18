@@ -20,7 +20,7 @@
                 <td>{{ $opportunity->event_day }}</td>
                 <td>{{ $opportunity->start_time }}</td>
                 <td>{{ $opportunity->end_time }}</td>
-                <td>{{ $opportunity->volunteer_center_id }}</td>
+                <td><a href="{{ URL::to('volunteer_centers/' . $opportunity->volunteer_center->id) }}">{{ $opportunity->volunteer_center->name }}</td>
                 <td>
                     <div class="row">
                         <div class="col-md-12">
