@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Opportunity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OpportunitiesController extends Controller
 {
@@ -14,8 +15,8 @@ class OpportunitiesController extends Controller
      */
     public function index()
     {
-        $opportunities = Opportunity::all();
-        return view('opportunities.index', compact('opportunities'));
+        $opportunities = DB::table('opportunities')->paginate(15);
+        return view('opportunities.index', ['opportunities' => $opportunities]);
     }
 
     /**

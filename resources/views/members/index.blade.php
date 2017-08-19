@@ -2,14 +2,15 @@
 
 @section('content')
 
-    <h1>All Volunteers</h1>
+    <h1>Volunteers</h1>
 
-    @if (Session::has('message'))
+    @if (session()->has('message'))
         <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
         @foreach ($members as $member)
             <div>
-                <a href="{{ $member->path() }}">{{ $member->first_name }} {{ $member->last_name }}</a>
+                <a href="{{ URL::to('members/' . $member->id) }}">{{ $member->first_name }} {{ $member->last_name }}</a>
             </div>
     @endforeach
+    {{ $members->links() }}
 @stop
