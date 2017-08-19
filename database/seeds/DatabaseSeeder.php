@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = App\User::where('email', '=', 'admin@example.org');
+        $user = App\User::where('email', 'admin@example.com')->first();
         if ($user === null) {
             DB::table('users')->insert([
                 'name' => "Admin",
