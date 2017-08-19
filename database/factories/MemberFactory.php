@@ -19,8 +19,6 @@ $factory->define(App\Member::class, function (Faker\Generator $faker) {
         'drivers_license' => $faker->boolean($chanceOfGettingTrue = 50),
         'ss_card' => $faker->boolean($chanceOfGettingTrue = 50),
         'approval_status' => $faker->randomElement($array = array ('pending', 'approved', 'rejected')),
-        'user_id' => function() {
-            return factory(App\User::class)->create()->id;
-        },
+        'user_id' => 1,
     ];
 });
