@@ -16,10 +16,10 @@
 
                 {{Form::label('username', 'Username')}}
                 {{Form::text('username', null, array('class'=> 'form-control'))}}
-
+                <br>
                 {{Form::label('password', 'Password')}}
-                {{Form::text('password', null, array('class'=> 'form-control'))}}
-
+                {{Form::password('password', null, array('class'=> 'form-control'))}}
+                <br>
                 {{Form::label('street', 'Street')}}
                 {{Form::text('street', null, array('class'=> 'form-control'))}}
 
@@ -40,17 +40,15 @@
 
                 {{Form::label('cell_phone', 'Cell Phone')}}
                 {{Form::text('cell_phone', null, array('class'=> 'form-control'))}}
-
+                <br>
                 {{Form::label('drivers_license', 'DL')}}
-                {{Form::text('drivers_license', null, array('class'=> 'form-control'))}}
-
+                {{Form::checkbox('drivers_license', 1, array('class'=> 'form-control'))}}
+                <br>
                 {{Form::label('ss_card', 'SS card')}}
-                {{Form::text('ss_card', null, array('class'=> 'form-control'))}}
-
+                {{Form::checkbox('ss_card', 1, array('class'=> 'form-control'))}}
+                <br>
                 {{Form::label('approval_status', 'Approval Status')}}
-                {{Form::text('approval_status', null, array('class'=> 'form-control'))}}
-
-
+                {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'rejected' => 'Rejected'], array('class'=> 'form-control'))}}
 
             {{Form::submit('Click', array('class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 5px'))}}
 
