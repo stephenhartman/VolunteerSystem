@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
@@ -14,8 +15,34 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = Member::all()->paginate(20);
-        return view('members.index', compact('members'));
+        if (\Request::get('search'))
+        {
+            $search = \Request::get('search');
+            $members = Member::where('first_name', 'like', '%' .$search. '%')
+                ->orWhere('last_name', 'like', '%' . $search . '%')
+                ->orderBy('first_name')
+                ->paginate(15);
+            if (!$members)
+            {
+                session()->flash('message', 'No volunteers found, please search again.');
+            }
+        }
+        elseif (\Request::get('approval_status'))
+        {
+            $search = \Request::get('approval_status');
+            $members = Member::where('approval_status', $search)
+                ->orderBy('first_name')
+                ->paginate(10);
+            if (!$members)
+            {
+                session()->flash('message', 'No volunteers found, please search again.');
+            }
+        }
+        else
+        {
+            $members = DB::table('members')->orderBy('first_name')->paginate(15);
+        }
+        return view('members.index', ['members' => $members]);
     }
 
     /**

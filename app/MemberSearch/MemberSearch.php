@@ -8,12 +8,12 @@ class MemberSearch
 {
     public static function apply(Request $filters)
     {
-        $query = static::applyDecoratorsFromRequest($filters, (new Member)->newQuery());
+        $query = static::applyDecoratorsFromRequest($filters, (new \App\Member)->newQuery());
 
         return static::getResults($query);
     }
 
-    private static function applyDecoratorsFromRequest(Request $request, Builder $query)
+    private static function applyDecoratorsFromRequest(Request $request, $query)
     {
         foreach ($request->all() as $filterName => $value)
         {
@@ -30,7 +30,7 @@ class MemberSearch
 
     private static function createFilterDecorator($name)
     {
-        return return __NAMESPACE__ . '\\Filters\\' .  studly_case($name);
+        return __NAMESPACE__ . '\\Filters\\' .  studly_case($name);
     }
 
     private static function isValidDecorator($decorator)
@@ -38,7 +38,7 @@ class MemberSearch
         return class_exists($decorator);
     }
 
-    private static function getResults(Builder $query)
+    private static function getResults($query)
     {
         return $query->get();
     }
