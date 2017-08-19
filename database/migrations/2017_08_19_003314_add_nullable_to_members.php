@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDefaultToBoolean extends Migration
+class AddNullableToMembers extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,9 @@ class AddDefaultToBoolean extends Migration
     {
         Schema::table('members', function (Blueprint $table)
         {
-            $table->boolean('drivers_license')->default(0)->change();
-            $table->boolean('ss_card')->default(0)->change();
+            $table->boolean('drivers_license')->nullable()->change();
+            $table->boolean('ss_card')->nullable()->change();
         });
-        //
     }
 
     /**
@@ -30,8 +29,8 @@ class AddDefaultToBoolean extends Migration
     {
         Schema::table('members', function (Blueprint $table)
         {
-            $table->boolean('drivers_license')->change();
-            $table->boolean('ss_card')->change();
+            $table->boolean('drivers_license')->nullable(false)->change();
+            $table->boolean('ss_card')->nullable(false)->change();
         });
     }
 }
