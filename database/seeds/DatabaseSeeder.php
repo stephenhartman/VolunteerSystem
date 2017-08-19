@@ -19,14 +19,14 @@ class DatabaseSeeder extends Seeder
                 'password' => bcrypt('secret'),
             ]);
         }
-        $members = factory(App\Member::class, 25)
+        $members = factory(App\Member::class, 50)
             ->create()
             ->each(function ($m) {
             $m->schedules()->save(factory(App\Schedule::class)->make());
         });
-        $interests = factory(App\Interests::class, 50)->create();
-        $contacts = factory(App\EmergencyContact::class, 30)->create();
-        $opportunities = factory(App\Opportunity::class, 30)->create();
+        $interests = factory(App\Interests::class, 100)->create();
+        $contacts = factory(App\EmergencyContact::class, 50)->create();
+        $opportunities = factory(App\Opportunity::class, 50)->create();
     }
 
 }

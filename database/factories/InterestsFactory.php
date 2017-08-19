@@ -4,6 +4,6 @@
 $factory->define(App\Interests::class, function (Faker\Generator $faker) {
 
     return [
-        'interest' => $faker->safeColorName,
-        'member_id' => rand(1,25)];
+        'interest' => $faker->realText($maxNbChars = 25),
+        'member_id' => rand(1,50)];
 });
