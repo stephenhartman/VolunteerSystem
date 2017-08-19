@@ -33,7 +33,7 @@ Route::resource('interests', 'InterestsController');
 
 Route::resource('volunteer_centers', 'VolunteerCenterController');
 
-Route::post('/search', 'SearchController@filter');
+Route::get('/search', 'SearchController@filter');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');

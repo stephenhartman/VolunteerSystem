@@ -9,7 +9,8 @@
     @endif
         @foreach ($opportunities as $opportunity)
             <div>
-                <a href="{{ $opportunity->path() }}">{{ $opportunity->name }}</a>
+                <a href="{{ URL::to('/opportunities/' . $opportunity->id) }}">{{ $opportunity->name }}</a>
             </div>
     @endforeach
+    {{ $opportunities->links() }}
 @stop
