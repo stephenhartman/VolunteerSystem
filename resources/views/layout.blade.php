@@ -11,13 +11,8 @@
     </head>
     <body>
         @include('_header')
-            @if (Session::has('message'))
-                <div class="alert alert-info">{{ Session::get('message') }}</div>
-            @elseif (Session::has('error'))
-                <div class="alert alert-warning">{{Session::get('error') }}</div>
-            @endif
+        @include('_messages')
             <div id="main">
-                @include('_messages')
                 @yield('content')
             </div>
         @include('_footer')

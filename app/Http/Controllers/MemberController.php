@@ -17,6 +17,7 @@ class MemberController extends Controller
      */
     public function index()
     {
+        Session::forget('error');
         if (\Request::get('search'))
         {
             $search = \Request::get('search');
