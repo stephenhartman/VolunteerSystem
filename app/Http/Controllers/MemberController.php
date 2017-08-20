@@ -43,7 +43,7 @@ class MemberController extends Controller
         {
             $members = DB::table('members')->orderBy('first_name')->paginate(15);
         }
-        return view('members.index', ['members' => $members]);
+        return view('members.index', ['members' => $members->appends(Input::except('page'))]);
     }
 
     /**

@@ -44,6 +44,11 @@ class Member extends Model
         return $this->hasMany(Interests::class);
     }
 
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
     public function path()
     {
         return '/members/' . $this->id;
