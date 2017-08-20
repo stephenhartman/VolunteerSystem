@@ -52,17 +52,16 @@
                         <td>
                             <div class="row">
                                 <div class="col-md-12">
-                                {{ Form::open(['method' => 'GET', 'route' => ['members.edit', $member->id]]) }}
-                                {{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
-                                {{ Form::close() }}
+                                    {{ Form::open(['method' => 'GET', 'route' => ['members.edit', $member->id]]) }}
+                                    {{ Form::button('<i class="glyphicon glyphicon-pencil"></i> Edit', array('type' => 'submit', 'class' => 'btn btn-warning')) }}
+                                    {{ Form::close() }}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                {{ Form::open(['method' => 'DELETE', 'route' => ['members.destroy', $member->id]]) }}
-                                {{ Form::hidden('id', $member->id) }}
-                                {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-                                {{ Form::close() }}
+                                    {{ Form::open(['method' => 'DELETE', 'route' => ['members.destroy', $member->id], ]) }}
+                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $member->id, 'class' => 'btn btn-danger delete-member')) }}
+                                    {{ Form::close() }}
                                 </div>
                             </div>
                         </td>

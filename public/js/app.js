@@ -796,6 +796,32 @@ var app = new Vue({
   el: '#app'
 });
 
+$('button.delete-member').click(function () {
+  var id = $(this).attr("data-id");
+  deleteMember(id);
+});
+
+function deleteMember(id) {
+  swal({
+    title: "Are you sure?",
+    text: "Are you sure that you want to delete this record?",
+    type: "warning",
+    showCancelButton: true,
+    closeOnConfirm: false,
+    confirmButtonText: "Yes",
+    confirmButtonColor: "#ec6c62"
+  }, function () {
+    $.ajax({
+      url: "/members/" + id,
+      type: "DELETE"
+    }).done(function (data) {
+      swal("Deleted!", "Your record was successfully deleted!", "success");
+    }).error(function (data) {
+      swal("Oops", "We couldn't connect to the server!", "error");
+    });
+  });
+}
+
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
