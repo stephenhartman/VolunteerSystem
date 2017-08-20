@@ -50,7 +50,15 @@
                 {{Form::label('approval_status', 'Approval Status')}}
                 {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'rejected' => 'Rejected'], array('class'=> 'form-control'))}}
 
-            {{Form::submit('Click', array('class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 5px'))}}
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Html::linkRoute('members.index', 'Cancel', array(), array('class' => "btn btn-danger btn-block")) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ Form::submit('Save Changes', ['class' => "btn btn-success btn-block"]) }}
+                    </div>
+                </div>
+
 
             {!! Form::close() !!}
         </div>

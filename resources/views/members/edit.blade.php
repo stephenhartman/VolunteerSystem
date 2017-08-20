@@ -43,7 +43,7 @@
             {{Form::text('cell_phone', null, array('class'=> 'form-control'))}}
             <br>
             {{Form::label('drivers_license', 'DL')}}
-            {{Form::checkbox('drivers_license', 1, array('class'=> 'form-control'))}}
+            {{Form::checkbox('drivers_license', $member->drivers_license = 1 ? 1 : 0, array('class'=> 'form-control'))}}
             <br>
             {{Form::label('ss_card', 'SS card')}}
             {{Form::checkbox('ss_card',  $member->ss_card = 1 ? 1 : 0, array('class'=> 'form-control'))}}
@@ -51,7 +51,14 @@
             {{Form::label('approval_status', 'Approval Status')}}
             {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'rejected' => 'Rejected'], array('class'=> 'form-control'))}}
 
-            {{Form::submit('Click', array('class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top: 5px'))}}
+            <div class="row">
+                <div class="col-sm-6">
+                    {!! Html::linkRoute('members.show', 'Cancel', array($member), array('class' => "btn btn-danger btn-block")) !!}
+                </div>
+                <div class="col-sm-6">
+                    {{ Form::submit('Save Changes', ['class' => "btn btn-success btn-block"]) }}
+                </div>
+            </div>
 
             {!! Form::close() !!}
         </div>
