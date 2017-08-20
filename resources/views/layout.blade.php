@@ -11,15 +11,15 @@
     </head>
     <body>
         @include('_header')
-        <div class="container">
             @if (Session::has('message'))
                 <div class="alert alert-info">{{ Session::get('message') }}</div>
+            @elseif (Session::has('error'))
+                <div class="alert alert-warning">{{Session::get('error') }}</div>
             @endif
             <div id="main">
                 @include('_messages')
                 @yield('content')
             </div>
-        </div>
         @include('_footer')
     </body>
 </html>

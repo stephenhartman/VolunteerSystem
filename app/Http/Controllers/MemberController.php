@@ -24,9 +24,9 @@ class MemberController extends Controller
                 ->orWhere('last_name', 'like', '%' . $search . '%')
                 ->orderBy('first_name')
                 ->paginate(15);
-            if (!$members)
+            if ($members->isEmpty())
             {
-                Session::flash('not found', 'No volunteers found, please search again.');
+                Session::flash('error', 'No volunteers found, please search again.');
             }
         }
         elseif (\Request::get('approval_status'))
@@ -35,9 +35,9 @@ class MemberController extends Controller
             $members = Member::where('approval_status', $search)
                 ->orderBy('first_name')
                 ->paginate(10);
-            if (!$members)
+            if ($members->isEmpty())
             {
-                Session::flash('not found', 'No volunteers found, please search again.');
+                Session::flash('error', 'No volunteers found, please search again.');
             }
         }
         else
