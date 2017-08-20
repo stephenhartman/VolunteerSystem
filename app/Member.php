@@ -48,9 +48,4 @@ class Member extends Model
     {
         return $this->hasMany(Skill::class);
     }
-
-    public function path()
-    {
-        return '/members/' . $this->id;
-    }
 }
