@@ -26,14 +26,14 @@
                         <td>
                             <div class="row">
                                 <div class="col-md-12">
-                                    {{ Form::open(['method' => 'GET', 'route' => ['opportunities.edit', $opportunity->id]]) }}
+                                    {{ Form::open(['method' => 'GET', 'route' => ['volunteer_centers.opportunities.edit', $opportunity, $volunteer_center]]) }}
                                     {{ Form::button('<i class="glyphicon glyphicon-pencil"></i> Edit', array('type' => 'submit', 'class' => 'btn btn-warning')) }}
                                     {{ Form::close() }}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    {{ Form::open(['method' => 'DELETE', 'route' => ['opportunities.destroy', $opportunity->id], ]) }}
+                                    {{ Form::open(['method' => 'DELETE', 'route' => ['volunteer_centers.opportunities.destroy', $opportunity, $volunteer_center], ]) }}
                                     {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $opportunity->id, 'class' => 'btn btn-danger delete-button')) }}
                                     {{ Form::close() }}
                                 </div>

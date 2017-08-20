@@ -7,7 +7,7 @@
             <h1>Volunteers</h1>
         </div>
         <div class="col-md-2">
-            <a href="{{ route('members.create') }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Member</a>
+            <a href="{{ route('members.create') }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Volunteer</a>
         </div>
         <div class="col-md-12">
             <hr>
