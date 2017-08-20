@@ -2,15 +2,26 @@
 
 @section('content')
 
-    <h1>All Opportunities</h1>
+    <div class="row">
+        <div class="col-md-9">
+            <h1>Opportunities</h1>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ route('opportunities.create') }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Opportunity</a>
+        </div>
+        <div class="col-md-12">
+            <hr>
+        </div>
+    </div> <!--end of row-->
 
-    @if (Session::has('message'))
-        <div class="alert alert-info">{{ Session::get('message') }}</div>
-    @endif
-        @foreach ($opportunities as $opportunity)
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            @foreach ($opportunities as $opportunity)
             <div>
                 <a href="{{ URL::to('/opportunities/' . $opportunity->id) }}">{{ $opportunity->name }}</a>
             </div>
-    @endforeach
-    {{ $opportunities->links() }}
+        @endforeach
+        {{ $opportunities->links() }}
+        </div>
+    </div>
 @stop

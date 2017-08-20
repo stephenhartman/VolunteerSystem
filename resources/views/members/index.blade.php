@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-9">
             <h1>Volunteers</h1>
         </div>
         <div class="col-md-2">
@@ -14,14 +14,14 @@
         </div>
     </div> <!--end of row-->
 
-
-    @if (session()->has('message'))
-        <div class="alert alert-info">{{ Session::get('message') }}</div>
-    @endif
-        @foreach ($members as $member)
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            @foreach ($members as $member)
             <div>
                 <a href="{{ URL::to('members/' . $member->id) }}">{{ $member->first_name }} {{ $member->last_name }}</a>
             </div>
-    @endforeach
-    {{ $members->links() }}
+        @endforeach
+        {{ $members->links() }}
+        </div>
+    </div>
 @stop

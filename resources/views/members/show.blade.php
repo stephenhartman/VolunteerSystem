@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <h3>Volunteer Information</h3>
     <div class="row">
         <div class="col-md-12">
+            <h3>Volunteer Information</h3>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
