@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\EmergencyContact;
+use App\Schedule;
 use Illuminate\Http\Request;
 
-class EmergencyContact extends Controller
+class SchedulesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class EmergencyContact extends Controller
      */
     public function index()
     {
-        $contacts = EmergencyContact::all();
-        return view('emergency_contacts.index', compact('contacts'));
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class EmergencyContact extends Controller
      */
     public function create()
     {
-        return view('emergency_contacts.create');
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class EmergencyContact extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\EmergencyContact  $emergencyContact
+     * @param  \App\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function show(EmergencyContact $emergencyContact)
+    public function show(Schedule $schedule)
     {
         //
     }
@@ -53,10 +52,10 @@ class EmergencyContact extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\EmergencyContact  $emergencyContact
+     * @param  \App\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function edit(EmergencyContact $emergencyContact)
+    public function edit(Schedule $schedule)
     {
         //
     }
@@ -65,10 +64,10 @@ class EmergencyContact extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\EmergencyContact  $emergencyContact
+     * @param  \App\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EmergencyContact $emergencyContact)
+    public function update(Request $request, Schedule $schedule)
     {
         //
     }
@@ -76,10 +75,10 @@ class EmergencyContact extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\EmergencyContact  $emergencyContact
+     * @param  \App\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EmergencyContact $emergencyContact)
+    public function destroy(Schedule $schedule)
     {
         //
     }

@@ -18,24 +18,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'PagesController@home');
-
+Route::get('/home', 'HomeController@index');
 Route::get('about', 'PagesController@about');
 
 Route::resource('members', 'MemberController');
+Route::resource('members.schedules', 'SchedulesController');
+Route::resource('members.emergency_contacts', 'EmergencyContactController');
+Route::resource('members.interests', 'InterestsController');
 
 Route::resource('opportunities', 'OpportunitiesController');
-
-Route::resource('schedules', 'SchedulesController');
-
-Route::resource('emergency_contacts', 'EmergencyContactController');
-
-Route::resource('interests', 'InterestsController');
 
 Route::resource('volunteer_centers', 'VolunteerCenterController');
 
 Route::get('/search', 'SearchController@filter');
 
-Route::get('/home', 'HomeController@index');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 Route::prefix('admin')->group(function() {

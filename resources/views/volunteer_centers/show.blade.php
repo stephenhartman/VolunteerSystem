@@ -26,12 +26,16 @@
                 <td>
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-small btn-success" href="{{ URL::to('volunteer_centers/' . $volunteer_center->id . '/edit') }}">Edit Volunteer Center</a>
+                            {{ Form::open(['method' => 'GET', 'route' => ['volunteer_centers.edit', $volunteer_center->id]]) }}
+                            {{ Form::button('<i class="glyphicon glyphicon-pencil"></i> Edit', array('type' => 'submit', 'class' => 'btn btn-warning')) }}
+                            {{ Form::close() }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-small btn-warning" href="{{ URL::to('volunteer_centers/' . $volunteer_center->id) }}" data-method="delete" data-token="{{ csrf_token() }}" data-confirm="Are you sure you want to delete this volunteer center?">Delete Volunteer Center</a>
+                            {{ Form::open(['method' => 'DELETE', 'route' => ['volunteer_centers.destroy', $volunteer_center->id], ]) }}
+                            {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $volunteer_center->id, 'class' => 'btn btn-danger delete-button')) }}
+                            {{ Form::close() }}
                         </div>
                     </div>
                 </td>
@@ -51,7 +55,7 @@
         <tbody>
             @foreach ($volunteer_center->opportunities as $opportunity)
                 <tr>
-                <td>{{ $opportunity->name }}</td>
+                <td><a href="{{ URL::to('opportunities/' . $opportunity->id) }}">{{ $opportunity->name }}</td>
                 <td>{{ \Carbon\Carbon::parse($opportunity->event_day)->format('m/d/Y') }}</td>
                 <td>{{ \Carbon\Carbon::parse($opportunity->start_time)->format('g:i A') }}</td>
                 <td>{{ \Carbon\Carbon::parse($opportunity->end_time)->format('g:i A') }}</td>

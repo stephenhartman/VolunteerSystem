@@ -24,12 +24,16 @@
                 <td>
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-small btn-success" href="{{ URL::to('opportunities/' . $opportunity->id . '/edit') }}">Edit Opportunity</a>
+                            {{ Form::open(['method' => 'GET', 'route' => ['opportunities.edit', $opportunity->id]]) }}
+                            {{ Form::button('<i class="glyphicon glyphicon-pencil"></i> Edit', array('type' => 'submit', 'class' => 'btn btn-warning')) }}
+                            {{ Form::close() }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-small btn-warning" href="{{ URL::to('opportunities/' . $opportunity->id) }}" data-method="delete" data-token="{{ csrf_token() }}" data-confirm="Are you sure you want to delete this opportunity?">Delete Opportunity</a>
+                            {{ Form::open(['method' => 'DELETE', 'route' => ['opportunities.destroy', $opportunity->id], ]) }}
+                            {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $opportunity->id, 'class' => 'btn btn-danger delete-button')) }}
+                            {{ Form::close() }}
                         </div>
                     </div>
                 </td>

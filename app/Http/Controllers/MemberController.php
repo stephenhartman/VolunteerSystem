@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class MemberController extends Controller
 {
@@ -42,7 +43,7 @@ class MemberController extends Controller
         {
             $members = DB::table('members')->orderBy('first_name')->paginate(15);
         }
-        return view('members.index', ['members' => $members]);
+        return view('members.index', ['members' => $members->appends(Input::except('page'))]);
     }
 
     /**
@@ -108,6 +109,7 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
-        //
+        $member->delete();
+        return redirect()->route('members.index');
     }
 }

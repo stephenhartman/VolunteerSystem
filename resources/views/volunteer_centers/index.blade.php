@@ -9,7 +9,7 @@
     @endif
         @foreach ($volunteer_centers as $volunteer_center)
             <div>
-                <a href="{{ $volunteer_center->path() }}">{{ $volunteer_center->name }}</a>
+                <a href="{{ URL::to($volunteer_center->id }}">{{ $volunteer_center->name }}</a>
             </div>
     @endforeach
 @stop

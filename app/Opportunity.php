@@ -19,9 +19,4 @@ class Opportunity extends Model
     {
         return $this->belongsToMany(Member::class);
     }
-
-    public function path()
-    {
-        return '/opportunities/' . $this->id;
-    }
 }
