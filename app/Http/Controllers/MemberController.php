@@ -100,16 +100,15 @@ class MemberController extends Controller
         $member->ss_card = $request->ss_card;
         $member->approval_status = $request->approval_status;
         $member->user_id = 1;
-        if(!$request->has('ss_card'))
-        {
-            $request->merge(['ss_card' => 0]);
-        }
 
         if(!$request->has('drivers_license'))
         {
             $request->merge(['drivers_license' => 0]);
         }
-
+        elseif(!$request->has('ss_card'))
+        {
+            $request->merge(['ss_card' => 0]);
+        }
         $member->save();
 
         Session::flash('success', 'The new member was successfully saved!');
