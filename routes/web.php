@@ -23,12 +23,11 @@ Route::get('about', 'PagesController@about');
 
 Route::resource('members', 'MemberController');
 Route::resource('members.schedules', 'SchedulesController');
-Route::resource('members.emergency_contacts', 'EmergencyContactController');
+Route::resource('members.emergency_contacts', 'EmergencyContactsController');
 Route::resource('members.interests', 'InterestsController');
 
-Route::resource('opportunities', 'OpportunitiesController');
-
 Route::resource('volunteer_centers', 'VolunteerCenterController');
+Route::resource('volunteer_centers.opportunities', 'OpportunitiesController');
 
 Route::get('/search', 'SearchController@filter');
 

@@ -57,7 +57,7 @@
                 <tbody>
                     @foreach ($volunteer_center->opportunities as $opportunity)
                         <tr>
-                        <td><a href="{{ URL::to('opportunities/' . $opportunity->id) }}">{{ $opportunity->name }}</td>
+                            <td><a href="{{ URL::to('volunteer_centers/' . $volunteer_center->id . '/opportunities/' . $opportunity->id) }}">{{ $opportunity->name }}</td>
                         <td>{{ \Carbon\Carbon::parse($opportunity->event_day)->format('m/d/Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($opportunity->start_time)->format('g:i A') }}</td>
                         <td>{{ \Carbon\Carbon::parse($opportunity->end_time)->format('g:i A') }}</td>
