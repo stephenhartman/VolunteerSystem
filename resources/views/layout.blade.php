@@ -16,6 +16,7 @@
                 <div class="alert alert-info">{{ Session::get('message') }}</div>
             @endif
             <div id="main">
+                @include('_messages')
                 @yield('content')
             </div>
         </div>

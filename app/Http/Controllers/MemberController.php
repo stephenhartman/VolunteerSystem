@@ -6,6 +6,7 @@ use App\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class MemberController extends Controller
 {
@@ -25,7 +26,7 @@ class MemberController extends Controller
                 ->paginate(15);
             if (!$members)
             {
-                session()->flash('message', 'No volunteers found, please search again.');
+                Session::flash('not found', 'No volunteers found, please search again.');
             }
         }
         elseif (\Request::get('approval_status'))
@@ -36,7 +37,7 @@ class MemberController extends Controller
                 ->paginate(10);
             if (!$members)
             {
-                session()->flash('message', 'No volunteers found, please search again.');
+                Session::flash('not found', 'No volunteers found, please search again.');
             }
         }
         else
@@ -68,7 +69,17 @@ class MemberController extends Controller
         $this->validate($request, array(
            'first_name' => 'required',
            'last_name' => 'required',
-           'email' => 'email'
+           'email' => 'email',
+           'username' => 'required',
+           'password' => 'required',
+           'street' => 'required',
+           'city' => 'required',
+           'state' => 'required',
+            'zipcode' => 'required',
+            'home_phone' => 'required',
+            'work_phone' => 'required',
+            'cell_phone' => 'required',
+
         ));
 
         //store
@@ -101,6 +112,10 @@ class MemberController extends Controller
 
         $member->save();
 
+        Session::flash('success', 'The new member was successfully saved!');
+
+        return redirect()->route('members.show', $member->id);
+
     }
 
     /**
@@ -122,7 +137,7 @@ class MemberController extends Controller
      */
     public function edit(Member $member)
     {
-        //
+        return view('members.edit', compact('member'));
     }
 
     /**
@@ -134,7 +149,56 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        //
+        //validate
+        $this->validate($request, array(
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'email',
+            'username' => 'required |max:60',
+            'password' => 'required |max:60',
+            'street' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zipcode' => 'required',
+            'home_phone' => 'required',
+            'work_phone' => 'required',
+            'cell_phone' => 'required',
+
+        ));
+
+        //store
+
+        $member->first_name = $request->first_name;
+        $member->last_name = $request->last_name;
+        $member->email = $request->email;
+        $member->username = $request->username;
+        $member->password = $request->password;
+        $member->street = $request->street;
+        $member->city = $request->city;
+        $member->state = $request->state;
+        $member->zipcode = $request->zipcode;
+        $member->home_phone = $request->home_phone;
+        $member->work_phone = $request->work_phone;
+        $member->cell_phone = $request->cell_phone;
+        $member->drivers_license = $request->drivers_license;
+        $member->ss_card = $request->ss_card;
+        $member->approval_status = $request->approval_status;
+        $member->user_id = 1;
+        if(!$request->has('ss_card'))
+        {
+            $request->merge(['ss_card' => 0]);
+        }
+
+        if(!$request->has('drivers_license'))
+        {
+            $request->merge(['drivers_license' => 0]);
+        }
+
+        $member->save();
+
+        Session::flash('success', 'The member was successfully updated!');
+
+        return redirect()->route('members.show', $member->id);
     }
 
     /**
