@@ -38,12 +38,12 @@
                         <td>{{ $member->home_phone }}</td>
                         <td>{{ $member->work_phone }}</td>
                         <td>{{ $member->cell_phone }}</td>
-                        @if ($member->ss_card == true)
+                        @if ($member->drivers_license == 1 )
                             <td>Yes</td>
                         @else
                             <td>No</td>
                         @endif
-                        @if ($member->drivers_license == true)
+                        @if ($member->ss_card == 1 )
                             <td>Yes</td>
                         @else
                             <td>No</td>

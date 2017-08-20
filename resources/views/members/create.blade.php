@@ -2,64 +2,66 @@
 
 @section('content')
 
-    <div class="alert alert-info">{{ Html::ul($errors->all()) }}</div>
-    {{ Form::open(array('url' => 'members')) }}
-    <div class="form-group">
-        {{ Form::label('first_name', 'First Name') }}
-        {{ Form::text('first_name', ('class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('last_name', 'Last Name') }}
-        {{ Form::text('last_name', Input::old('last_name'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('email', 'Email Address') }}
-        {{ Form::text('email', Input::old('email'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('username', 'Username') }}
-        {{ Form::text('username', Input::old('username'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('password', 'Password') }}
-        {{ Form::password('password', Input::old('password'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('street', 'Street Address') }}
-        {{ Form::text('street', Input::old('street'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('city', 'City') }}
-        {{ Form::text('city', Input::old('city'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('state', 'State') }}
-        {{ Form::text('state', Input::old('state'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('zipcode', 'Zipcode') }}
-        {{ Form::text('zipcode', Input::old('zipcode'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('home_phone', 'Home Phone Number') }}
-        {{ Form::text('home_phone', Input::old('home_phone'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('work_phone', 'Work Phone Number') }}
-        {{ Form::text('work_phone', Input::old('work_phone'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('cell_phone', 'Cell Phone Number') }}
-        {{ Form::text('cell_phone', Input::old('cell_phone'), array('required', 'class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('drivers_license', "Driver's License?") }}
-        {{ Form::checkbox('drivers_license', Input::old('drivers_license'), array('class' => 'form-control')) }}
-    </div>
-    <div class="form-group">
-        {{ Form::label('approval_status', "Approval Status") }}
-        {{ Form::select('approval_status', ['Pending', 'Approved', 'Rejected'], Input::old('ss_card'), array('class' => 'form-control')) }}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            {!! Form::open(['route' => 'members.store']) !!}
+                {{Form::label('first_name', 'First Name')}}
+                {{Form::text('first_name', null, array('class'=> 'form-control'))}}
+
+                {{Form::label('last_name', 'Last Name')}}
+                {{Form::text('last_name', null, array('class'=> 'form-control'))}}
+
+                {{Form::label('email', 'Email')}}
+                {{Form::text('email', null, array('class'=> 'form-control'))}}
+
+                {{Form::label('username', 'Username')}}
+                {{Form::text('username', null, array('class'=> 'form-control'))}}
+                <br>
+                {{Form::label('password', 'Password')}}
+                {{Form::password('password', null, array('class'=> 'form-control'))}}
+                <br>
+                {{Form::label('street', 'Street')}}
+                {{Form::text('street', null, array('class'=> 'form-control'))}}
+
+                {{Form::label('city', 'City')}}
+                {{Form::text('city', null, array('class'=> 'form-control'))}}
+
+                {{Form::label('state', 'State')}}
+                {{Form::text('state', null, array('class'=> 'form-control'))}}
+
+                {{Form::label('zipcode', 'Zipcode')}}
+                {{Form::text('zipcode', null, array('class'=> 'form-control'))}}
+
+                {{Form::label('home_phone', 'Home Phone')}}
+                {{Form::text('home_phone', null, array('class'=> 'form-control'))}}
+
+                {{Form::label('work_phone', 'Work Phone')}}
+                {{Form::text('work_phone', null, array('class'=> 'form-control'))}}
+
+                {{Form::label('cell_phone', 'Cell Phone')}}
+                {{Form::text('cell_phone', null, array('class'=> 'form-control'))}}
+                <br>
+                {{Form::label('drivers_license', 'DL')}}
+                {{Form::checkbox('drivers_license', 1, array('class'=> 'form-control'))}}
+                <br>
+                {{Form::label('ss_card', 'SS card')}}
+                {{Form::checkbox('ss_card', 1, array('class'=> 'form-control'))}}
+                <br>
+                {{Form::label('approval_status', 'Approval Status')}}
+                {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'rejected' => 'Rejected'], array('class'=> 'form-control'))}}
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! Html::linkRoute('members.index', 'Cancel', array(), array('class' => "btn btn-danger btn-block")) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {{ Form::submit('Save Changes', ['class' => "btn btn-success btn-block"]) }}
+                    </div>
+                </div>
+
+
+            {!! Form::close() !!}
+        </div>
     </div>
 
-    {{ Form::submit('Add new volunteer', array('class' => 'btn btn-primary')) }}
-    {{ Form::close() }}
+@endsection

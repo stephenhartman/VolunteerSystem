@@ -11,18 +11,15 @@
     </head>
     <body>
         @include('_header')
-        <div class="container-fluid">
+        <div class="container">
             @if (Session::has('message'))
                 <div class="alert alert-info">{{ Session::get('message') }}</div>
             @endif
             <div id="main">
+                @include('_messages')
                 @yield('content')
             </div>
         </div>
+        @include('_footer')
     </body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-fixed-bottom">
-            <div id="copyright text-right">&copy; Copyright 2017 Initech</div>
-        </nav>
-    </div>
 </html>
