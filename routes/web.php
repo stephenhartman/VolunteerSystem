@@ -27,7 +27,7 @@ Route::resource('members.emergency_contacts', 'EmergencyContactsController');
 Route::resource('members.interests', 'InterestsController');
 
 Route::resource('volunteer_centers', 'VolunteerCenterController');
-Route::resource('volunteer_centers.opportunities', 'OpportunitiesController', ['except' => ['index']]);
+Route::resource('volunteer_centers.opportunities', 'OpportunitiesController');
 Route::resource('opportunities', 'OpportunityController', ['only' => 'index']);
 
 Route::get('/search', 'SearchController@filter');

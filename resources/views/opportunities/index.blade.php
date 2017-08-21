@@ -3,11 +3,12 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-9">
             <h1>Opportunities</h1>
         </div>
-    </div>
-    <div class="row">
+        <div class="col-md-2">
+            <a href="{{-- route('volunteer_centers.opportunities.create', $volunteer_center->id) --}}#" class="btn btn-block btn-primary" style="margin-top: 18px">New Opportunity</a>
+        </div>
         <div class="col-md-12">
             <hr>
         </div>
