@@ -796,7 +796,7 @@ var app = new Vue({
   el: '#app'
 });
 
-$('button.delete-member').click(function () {
+$('button.delete-button').click(function () {
   var id = $(this).attr("data-id");
   deleteMember(id);
 });
