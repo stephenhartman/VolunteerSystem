@@ -108,11 +108,15 @@
         </div>
     </div>
     <div class='row'>
-        <div class='col-md-3'>
-            <table class="table table-striped table-bordered">
+        <div class='col-md-4 col-md-offset-1'>
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <td>Interests</td>
+                        <td id="borderless">
+                            <div class="col-md-12">
+                                <a href="{{ route('members.interests.create', $member->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Interest</a>
+                            </div>
                     </tr>
                 </thead>
                 <tbody>
@@ -124,12 +128,16 @@
                 </tbody>
             </table>
         </div>
-        <div class='col-md-6'>
-            <table class="table table-striped table-bordered">
+        <div class='col-md-4 col-md-offset-1'>
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <td>Skill</td>
                         <td>Skill Level</td>
+                        <td id="borderless">
+                            <div class="col-md-12">
+                                <a href="{{ route('members.skills.create', $member->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Skill</a>
+                            </div>
                     </tr>
                 </thead>
                 <tbody>
