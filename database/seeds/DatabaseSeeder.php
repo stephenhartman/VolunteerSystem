@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         });
         $interests = factory(App\Interests::class, 100)->create();
         $contacts = factory(App\EmergencyContact::class, 50)->create();
+        $volunteer_centers = factory(App\VolunteerCenter::class, 10)->create();
         $opportunities = factory(App\Opportunity::class, 50)->create();
         $skills = factory(App\Skill::class, 200)->create();
     }

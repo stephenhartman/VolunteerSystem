@@ -42,7 +42,7 @@ class OpportunitiesController extends Controller
      * @param  \App\VolunteerCenter  $volunteerCenter
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, VolunteerCenter $volunteer_center)
+    public function store(Request $request, VolunteerCenter $volunteer_center, Opportunity $opportunity)
     {
         $this->validate($request, array(
             'start_time' => 'required',

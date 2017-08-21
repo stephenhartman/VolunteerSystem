@@ -10,8 +10,6 @@ $unix_timestamp = '1514758421';
         'end_time' => $faker->time($format = 'H:i:s', $min = 'now'),
         'event_day' => $faker->dateTimeBetween('now', $unix_timestamp),
         'name' => $faker->catchPhrase,
-        'volunteer_center_id' => function() {
-            return factory(App\VolunteerCenter::class)->create()->id;
-        },
+        'volunteer_center_id' => rand(1,10),
     ];
 });
