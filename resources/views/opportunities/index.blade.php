@@ -3,9 +3,10 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-3">
             <h1>Opportunities</h1>
         </div>
+            @include('_opportunities_search')
         <div class="col-md-2">
             <a href="{{-- route('volunteer_centers.opportunities.create', $volunteer_center->id) --}}#" class="btn btn-block btn-primary" style="margin-top: 18px">New Opportunity</a>
         </div>
