@@ -102,8 +102,10 @@ class InterestsController extends Controller
      * @param  \App\Interests  $interests
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member, Interests $interests)
+    public function destroy(Member $member, Interests $interest)
     {
-        //
+        $interest->delete();
+        Session::flash('message', 'The interest was successfully deleted.');
+        return redirect()->route('members.show', compact('member'));
     }
 }

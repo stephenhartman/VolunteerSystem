@@ -52,10 +52,11 @@ class SkillsController extends Controller
         $skill->skill_level = $request->skill_level;
         $skill->member_id = $member->id;
 
-        if ($skill->skill_level == null)
+        if(!$request->has('skill_level'))
         {
-            $skill->skill_level = 0;
+            $request->merge(['skill_level' => '0']);
         }
+
         $skill->save();
 
         Session::flash('success', 'The skill was successfully created!');
@@ -109,6 +110,8 @@ class SkillsController extends Controller
      */
     public function destroy(Member $member, Skill $skill)
     {
-        //
+        $skill->delete();
+        Session::flash('message', 'The skill was successfully deleted.');
+        return redirect()->route('members.show', compact('member'));
     }
 }

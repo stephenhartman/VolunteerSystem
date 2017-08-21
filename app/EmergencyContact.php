@@ -13,5 +13,6 @@ class EmergencyContact extends Model
 
     public function member()
     {
+        $this->belongsTo(Member::class);
     }
 }
