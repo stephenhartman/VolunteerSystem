@@ -17,10 +17,7 @@
 
             {{Form::label('username', 'Username')}}
             {{Form::text('username', null, array('class'=> 'form-control'))}}
-            <br>
-            {{Form::label('password', 'Password')}}
-            {{Form::password('password', null, array('class'=> 'form-control'))}}
-            <br>
+
             {{Form::label('street', 'Street')}}
             {{Form::text('street', null, array('class'=> 'form-control'))}}
 
