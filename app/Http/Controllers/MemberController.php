@@ -155,7 +155,6 @@ class MemberController extends Controller
             'last_name' => 'required',
             'email' => 'email',
             'username' => 'required |max:60',
-            'password' => 'required |max:60',
             'street' => 'required',
             'city' => 'required',
             'state' => 'required',
@@ -172,7 +171,6 @@ class MemberController extends Controller
         $member->last_name = $request->last_name;
         $member->email = $request->email;
         $member->username = $request->username;
-        $member->password = $request->password;
         $member->street = $request->street;
         $member->city = $request->city;
         $member->state = $request->state;
