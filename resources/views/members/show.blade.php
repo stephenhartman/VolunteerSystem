@@ -71,8 +71,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-3">
             <h3>Emergency Contacts</h3>
+        </div>
+        <div class="col-md-3 col-md-offset-3">
+            <a href="{{ route('members.emergency_contacts.create', $member->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Contact</a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -86,6 +94,7 @@
                         <td>Home Phone</td>
                         <td>Work Phone</td>
                         <td>Cell Phone</td>
+                        <td id="borderless"></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -101,28 +110,56 @@
                             <td>{{ $contact->home_phone }}</td>
                             <td>{{ $contact->work_phone }}</td>
                             <td>{{ $contact->cell_phone }}</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {{ Form::open(['method' => 'GET', 'route' => ['members.emergency_contacts.edit', $member, $contact]]) }}
+                                        {{ Form::button('<i class="glyphicon glyphicon-pencil"></i> Edit', array('type' => 'submit', 'class' => 'btn btn-warning')) }}
+                                        {{ Form::close() }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {{ Form::open(['method' => 'DELETE', 'route' => ['members.emergency_contacts.destroy', $member, $contact]]) }}
+                                        {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $contact->id, 'class' => 'btn btn-danger delete-member')) }}
+                                        {{ Form::close() }}
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    <br>
     <div class='row'>
         <div class='col-md-4 col-md-offset-1'>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <td>Interests</td>
-                        <td id="borderless">
-                            <div class="col-md-12">
-                                <a href="{{ route('members.interests.create', $member->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Interest</a>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <a href="{{ route('members.interests.create', $member->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Interest</a>
+                                </div>
                             </div>
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                 @foreach ($member->interests as $interest)
                     <tr>
                         <td>{{ $interest->interest }}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    {{ Form::open(['method' => 'DELETE', 'route' => ['members.interests.destroy', $member, $interest], ]) }}
+                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $interest->id, 'data-confirm' => 'Are you sure?', 'class' => 'btn btn-danger delete-button')) }}
+                                    {{ Form::close() }}
+                                </div>
+                            </div>
                     </tr>
                 @endforeach
                 </tbody>
@@ -134,9 +171,11 @@
                     <tr>
                         <td>Skill</td>
                         <td>Skill Level</td>
-                        <td id="borderless">
-                            <div class="col-md-12">
-                                <a href="{{ route('members.skills.create', $member->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Skill</a>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a href="{{ route('members.skills.create', $member->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Skill</a>
+                                </div>
                             </div>
                     </tr>
                 </thead>
@@ -145,6 +184,15 @@
                     <tr>
                         <td>{{ $skill->skill }}</td>
                         <td>{{ $skill->skill_level }}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    {{ Form::open(['method' => 'DELETE', 'route' => ['members.skills.destroy', $member, $skill], ]) }}
+                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $skill->id, 'data-confirm' => 'Are you sure?', 'class' => 'btn btn-danger delete-button')) }}
+                                    {{ Form::close() }}
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
