@@ -8,7 +8,7 @@
         </div>
             @include('_opportunities_search')
         <div class="col-md-2">
-            <a href="{{-- route('volunteer_centers.opportunities.create', $volunteer_center->id) --}}#" class="btn btn-block btn-primary" style="margin-top: 18px">New Opportunity</a>
+            <a href="{{ route('opportunities.create') }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Opportunity</a>
         </div>
         <div class="col-md-12">
             <hr>

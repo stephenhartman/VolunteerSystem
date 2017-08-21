@@ -43,4 +43,47 @@ class OpportunityController extends Controller
         }
         return view('opportunities.index', ['centers' => $centers, 'opportunities' => $opportunities->appends(Input::except('page'))]);
     }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $volunteer_centers = VolunteerCenter::pluck('name', 'id');
+        return view('opportunities.create', compact('volunteer_centers'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, array(
+            'start_time' => 'required',
+            'end_time' => 'required',
+            'event_day' => 'required',
+            'name' => 'required',
+
+        ));
+
+        //store
+        $opportunity = new Opportunity;
+        $opportunity->start_time = $request->start_time;
+        $opportunity->end_time = $request->end_time;
+        $opportunity->event_day = $request->event_day;
+        $opportunity->name = $request->name;
+        $opportunity->volunteer_center_id = $request->volunteer_center_id;
+
+        $opportunity->save();
+
+        Session::flash('success', 'The opportunity was successfully created!');
+
+        $volunteer_center = VolunteerCenter::find($opportunity->volunteer_center_id)->first();
+        return redirect()->route('volunteer_centers.opportunities.show', compact('opportunity', 'volunteer_center'));
+
+    }
 }
