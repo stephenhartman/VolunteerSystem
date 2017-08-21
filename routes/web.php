@@ -29,7 +29,7 @@ Route::resource('members.skills', 'SkillsController');
 
 Route::resource('volunteer_centers', 'VolunteerCenterController');
 Route::resource('volunteer_centers.opportunities', 'OpportunitiesController');
-Route::resource('opportunities', 'OpportunityController', ['only' => 'index']);
+Route::resource('opportunities', 'OpportunityController', ['only' => ['index', 'create', 'store']]);
 
 Route::get('/search', 'SearchController@filter');
 
