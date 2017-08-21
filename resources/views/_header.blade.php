@@ -24,7 +24,6 @@
                             </form>
                         </li>
                     </ul>
-                    @include('_member_search')
                 </div>
             </nav>
         </header>
