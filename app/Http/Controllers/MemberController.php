@@ -210,6 +210,8 @@ class MemberController extends Controller
     public function destroy(Member $member)
     {
         $member->delete();
+
+        Session::flash('message', 'The member was successfully deleted');
         return redirect()->route('members.index');
     }
 }
