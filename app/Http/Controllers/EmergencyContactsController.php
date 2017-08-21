@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\EmergencyContact;
 use App\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class EmergencyContactsController extends Controller
 {
@@ -16,8 +19,7 @@ class EmergencyContactsController extends Controller
      */
     public function index(Member $member)
     {
-        $contacts = EmergencyContact::all();
-        return view('emergency_contacts.index', compact('contacts'));
+        //
     }
 
     /**
@@ -28,7 +30,7 @@ class EmergencyContactsController extends Controller
      */
     public function create(Member $member)
     {
-        return view('emergency_contacts.create');
+        return view('members.emergency_contacts.create', compact('member'));
     }
 
     /**
@@ -40,17 +42,50 @@ class EmergencyContactsController extends Controller
      */
     public function store(Request $request, Member $member)
     {
-        //
+        //validate
+        $this->validate($request, array(
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'email',
+            'street' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zipcode' => 'required',
+            'home_phone' => 'required',
+            'work_phone' => 'required',
+            'cell_phone' => 'required',
+
+        ));
+
+        //store
+        $contact = new EmergencyContact;
+        $contact->first_name = $request->first_name;
+        $contact->last_name = $request->last_name;
+        $contact->email = $request->email;
+        $contact->street = $request->street;
+        $contact->city = $request->city;
+        $contact->state = $request->state;
+        $contact->zipcode = $request->zipcode;
+        $contact->home_phone = $request->home_phone;
+        $contact->work_phone = $request->work_phone;
+        $contact->cell_phone = $request->cell_phone;
+        $contact->member_id = $member->id;
+
+        $contact->save();
+
+        Session::flash('success', 'The new emergency contact was successfully saved!');
+
+        return redirect()->route('members.show', $member->id);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Member  $member
-     * @param  \App\EmergencyContact  $emergencyContact
+     * @param  \App\EmergencyContact  $emergency_contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Member $member, EmergencyContact $emergencyContact)
+    public function show(Member $member, EmergencyContact $emergency_contact)
     {
         //
     }
@@ -59,12 +94,12 @@ class EmergencyContactsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Member  $member
-     * @param  \App\EmergencyContact  $emergencyContact
+     * @param  \App\EmergencyContact  $emergency_contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member, EmergencyContact $emergencyContact)
+    public function edit(Member $member, EmergencyContact $emergency_contact)
     {
-        //
+        return view('members.emergency_contacts.edit', compact('member', 'emergency_contact'));
     }
 
     /**
@@ -72,23 +107,59 @@ class EmergencyContactsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Member  $member
-     * @param  \App\EmergencyContact  $emergencyContact
+     * @param  \App\EmergencyContact  $emergency_contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member, EmergencyContact $emergencyContact)
+    public function update(Request $request, Member $member, EmergencyContact $contact)
     {
-        //
+        //validate
+        $this->validate($request, array(
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'email',
+            'street' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zipcode' => 'required',
+            'home_phone' => 'required',
+            'work_phone' => 'required',
+            'cell_phone' => 'required',
+
+        ));
+
+        //store
+        $contact->first_name = $request->first_name;
+        $contact->last_name = $request->last_name;
+        $contact->email = $request->email;
+        $contact->street = $request->street;
+        $contact->city = $request->city;
+        $contact->state = $request->state;
+        $contact->zipcode = $request->zipcode;
+        $contact->home_phone = $request->home_phone;
+        $contact->work_phone = $request->work_phone;
+        $contact->cell_phone = $request->cell_phone;
+        $contact->member_id = $member->id;
+
+        $contact->save();
+
+        Session::flash('success', 'The emergency contact was successfully updated!');
+
+        return redirect()->route('members.show', $member->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Member  $member
-     * @param  \App\EmergencyContact  $emergencyContact
+     * @param  \App\EmergencyContact  $emergency_contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member, EmergencyContact $emergencyContact)
+    public function destroy(Member $member, EmergencyContact $emergency_contact)
     {
+        $emergency_contact->delete();
+
+        Session::flash('message', 'The emergency contact was successfully deleted');
+        return redirect()->route('members.show', compact('member'));
         //
     }
 }
