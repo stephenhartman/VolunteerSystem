@@ -3,9 +3,10 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-3">
             <h1>Volunteers</h1>
         </div>
+            @include('_member_search')
         <div class="col-md-2">
             <a href="{{ route('members.create') }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Volunteer</a>
         </div>
