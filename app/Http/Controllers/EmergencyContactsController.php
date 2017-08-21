@@ -110,7 +110,7 @@ class EmergencyContactsController extends Controller
      * @param  \App\EmergencyContact  $emergency_contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member, EmergencyContact $contact)
+    public function update(Request $request, Member $member, EmergencyContact $emergency_contact)
     {
         //validate
         $this->validate($request, array(
@@ -128,19 +128,19 @@ class EmergencyContactsController extends Controller
         ));
 
         //store
-        $contact->first_name = $request->first_name;
-        $contact->last_name = $request->last_name;
-        $contact->email = $request->email;
-        $contact->street = $request->street;
-        $contact->city = $request->city;
-        $contact->state = $request->state;
-        $contact->zipcode = $request->zipcode;
-        $contact->home_phone = $request->home_phone;
-        $contact->work_phone = $request->work_phone;
-        $contact->cell_phone = $request->cell_phone;
-        $contact->member_id = $member->id;
+        $emergency_contact->first_name = $request->first_name;
+        $emergency_contact->last_name = $request->last_name;
+        $emergency_contact->email = $request->email;
+        $emergency_contact->street = $request->street;
+        $emergency_contact->city = $request->city;
+        $emergency_contact->state = $request->state;
+        $emergency_contact->zipcode = $request->zipcode;
+        $emergency_contact->home_phone = $request->home_phone;
+        $emergency_contact->work_phone = $request->work_phone;
+        $emergency_contact->cell_phone = $request->cell_phone;
+        $emergency_contact->member_id = $member->id;
 
-        $contact->save();
+        $emergency_contact->save();
 
         Session::flash('success', 'The emergency contact was successfully updated!');
 
