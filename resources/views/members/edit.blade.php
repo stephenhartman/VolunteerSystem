@@ -50,7 +50,7 @@
 
             <br>
             {{Form::label('approval_status', 'Approval Status')}}
-            {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'rejected' => 'Rejected'], array('class'=> 'form-control'))}}
+            {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'disapproved' => 'Disapproved', 'inactive' => 'Inactive'], array('class'=> 'form-control'))}}
 
             <div class="row">
                 <div class="col-sm-6">
