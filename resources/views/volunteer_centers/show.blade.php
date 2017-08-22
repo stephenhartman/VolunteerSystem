@@ -6,13 +6,9 @@
         <div class="col-md-6">
             <h3>Volunteer Center Information</h3>
         </div>
-        <div class="col-md-2">
-            <a href="{{ route('volunteer_centers.opportunities.create', $volunteer_center->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Opportunity</a>
-        </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -52,7 +48,20 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-6">
             <h3>Opportunities</h3>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ route('volunteer_centers.opportunities.create', $volunteer_center->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Opportunity</a>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>

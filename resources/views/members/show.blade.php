@@ -70,6 +70,7 @@
             </table>
         </div>
     </div>
+    <hr/>
     <div class="row">
         <div class="col-md-3">
             <h3>Emergency Contacts</h3>
@@ -132,7 +133,7 @@
             </table>
         </div>
     </div>
-    <br>
+    <hr/>
     <div class='row'>
         <div class='col-md-4 col-md-offset-1'>
             <table class="table table-striped">
@@ -200,6 +201,7 @@
             </ul>
         </div>
     </div>
+    <hr/>
     <div class="row">
         <div class="col-md-3">
             <h3>Schedules</h3>
