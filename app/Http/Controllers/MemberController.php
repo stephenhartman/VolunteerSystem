@@ -71,7 +71,7 @@ class MemberController extends Controller
             }
             else
             {
-                return redirect()->route('opportunities.search', compact('collection'));
+                return view('opportunities.search', compact('collection'));
             }
         }
         else

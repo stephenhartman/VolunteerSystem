@@ -38,17 +38,16 @@
 
             {{Form::label('cell_phone', 'Cell Phone')}}
             {{Form::text('cell_phone', null, array('class'=> 'form-control'))}}
-            <br>
+
             {{Form::label('drivers_license', 'DL')}}
-            {{Form::checkbox('drivers_license', $member->drivers_license == 1 ? true : null, array('class'=> 'form-control'))}}
-            <br>
+            {{Form::checkbox('drivers_license', $member->drivers_license == 1 ? true : null, null, array('class'=> 'form-control'))}}
+
             {{Form::label('ss_card', 'SS card')}}
-            {{Form::checkbox('ss_card',  $member->ss_card == 1 ? true : null, array('class'=> 'form-control'))}}
+            {{Form::checkbox('ss_card',  $member->ss_card == 1 ? true : null, null, array('class'=> 'form-control'))}}
 
-            <br>
             {{Form::label('approval_status', 'Approval Status')}}
-            {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'disapproved' => 'Disapproved', 'inactive' => 'Inactive'], array('class'=> 'form-control'))}}
-
+            {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'disapproved' => 'Disapproved', 'inactive' => 'Inactive'], null, array('class'=> 'form-control'))}}
+            <br>
             <div class="row">
                 <div class="col-sm-6">
                     {!! Html::linkRoute('members.show', 'Cancel', array($member), array('class' => "btn btn-danger btn-block")) !!}

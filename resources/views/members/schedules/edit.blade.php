@@ -16,8 +16,6 @@
 
             {{Form::label('notes', 'Notes')}}
             {{Form::text('notes', null, array('class'=> 'form-control'))}}
-
-
             <br>
             <div class="row">
                 <div class="col-sm-6">

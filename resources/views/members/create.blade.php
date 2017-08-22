@@ -16,10 +16,10 @@
 
                 {{Form::label('username', 'Username')}}
                 {{Form::text('username', null, array('class'=> 'form-control'))}}
-                <br>
+
                 {{Form::label('password', 'Password')}}
-                {{Form::password('password', null, array('class'=> 'form-control'))}}
-                <br>
+                {{Form::password('password', array('class'=> 'form-control'))}}
+
                 {{Form::label('street', 'Street')}}
                 {{Form::text('street', null, array('class'=> 'form-control'))}}
 
@@ -40,16 +40,16 @@
 
                 {{Form::label('cell_phone', 'Cell Phone')}}
                 {{Form::text('cell_phone', null, array('class'=> 'form-control'))}}
-                <br>
-                {{Form::label('drivers_license', 'DL')}}
-                {{Form::checkbox('drivers_license', 1, array('class'=> 'form-control'))}}
-                <br>
-                {{Form::label('ss_card', 'SS card')}}
-                {{Form::checkbox('ss_card', 1, array('class'=> 'form-control'))}}
-                <br>
-                {{Form::label('approval_status', 'Approval Status')}}
-                {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'disapproved' => 'Disapproved', 'inactive' => 'Inactive'], array('class'=> 'form-control'))}}
 
+                {{Form::label('drivers_license', 'DL')}}
+                {{Form::checkbox('drivers_license', 1, null, array('class'=> 'form-control'))}}
+
+                {{Form::label('ss_card', 'SS card')}}
+                {{Form::checkbox('ss_card', 1, null, array('class'=> 'form-control'))}}
+
+                {{Form::label('approval_status', 'Approval Status')}}
+                {{Form::select('approval_status', ['pending' => 'Pending', 'approved' => 'Approved', 'disapproved' => 'Disapproved', 'inactive' => 'Inactive'], null, array('class'=> 'form-control'))}}
+                <br>
                 <div class="row">
                     <div class="col-sm-6">
                         {!! Html::linkRoute('members.index', 'Cancel', array(), array('class' => "btn btn-danger btn-block")) !!}

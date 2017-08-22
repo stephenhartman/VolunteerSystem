@@ -12,7 +12,7 @@
             {{Form::time('end_time', null, array('class'=> 'form-control'))}}
 
             {{Form::label('day_id', 'Day')}}
-            {{Form::select('day_id', [ 1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday', 6 => 'Saturday', 7 => 'Sunday'], array('class'=> 'form-control'))}}
+            {{Form::select('day_id', [ 1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday', 6 => 'Saturday', 7 => 'Sunday'], null, array('class'=> 'form-control'))}}
 
             {{Form::label('notes', 'Notes')}}
             {{Form::text('notes', null, array('class'=> 'form-control'))}}
