@@ -8,7 +8,7 @@
         </div>
     {{ Form::close() }}
 </div>
-<div class="col-md-2">
+<div class="col-md-3">
     <table class='table borderless'>
         <thead>
             <tr>

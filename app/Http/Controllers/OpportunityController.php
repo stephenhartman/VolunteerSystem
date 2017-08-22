@@ -32,7 +32,7 @@ class OpportunityController extends Controller
             $search = \Request::get('search');
             $opportunities = Opportunity::where('name', 'like', '%' .$search. '%')
                 ->orderBy('name')
-                ->paginate(10);
+                ->paginate(15);
             if ($opportunities->isEmpty())
             {
                 Session::flash('error', 'No opportunities found, please search again.');
@@ -43,7 +43,7 @@ class OpportunityController extends Controller
             $search = \Request::get('volunteer_center_id');
             $opportunities = Opportunity::where('volunteer_center_id', $search)
                 ->orderBy('name')
-                ->paginate(10);
+                ->paginate(15);
             if ($opportunities->isEmpty())
             {
                 Session::flash('error', 'No opportunities found, please search again.');
@@ -52,7 +52,7 @@ class OpportunityController extends Controller
         elseif (\Request::get('opportunity'))
         {
             $search = \Request::get('opportunity');
-            $members = Member::all();
+            $members = Member::get_members();
             $opportunity = Opportunity::where('id', $search)->get();
             $collection = collect();
             foreach($members as $member)
@@ -74,7 +74,7 @@ class OpportunityController extends Controller
         }
         else
         {
-            $opportunities = DB::table('opportunities')->paginate(10);
+            $opportunities = DB::table('opportunities')->paginate(15);
         }
         return view('opportunities.index', ['centers' => $centers, 'opportunities' => $opportunities->appends(Input::except('page'))]);
     }
@@ -119,6 +119,11 @@ class OpportunityController extends Controller
 
         $volunteer_center = VolunteerCenter::find($opportunity->volunteer_center_id)->first();
         return redirect()->route('volunteer_centers.opportunities.show', compact('opportunity', 'volunteer_center'));
+    }
 
+    public static function get_opportunities()
+    {
+        $opportunities = Opportunity::OrderBy('name')->get();
+        return $opportunities;
     }
 }
