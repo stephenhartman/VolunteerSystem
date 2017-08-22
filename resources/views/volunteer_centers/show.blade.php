@@ -7,9 +7,8 @@
             <h3>Volunteer Center Information</h3>
         </div>
     </div>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -49,40 +48,40 @@
                     </tr>
                 </tbody>
             </table>
-            <hr/>
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Opportunities</h3>
-                </div>
-                <div class="col-md-2">
-                    <a href="{{ route('volunteer_centers.opportunities.create', $volunteer_center->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Opportunity</a>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Event Date</td>
-                                <td>Start Time</td>
-                                <td>End Time</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($volunteer_center->opportunities as $opportunity)
-                                <tr>
-                                    <td><a href="{{ URL::to('volunteer_centers/' . $volunteer_center->id . '/opportunities/' . $opportunity->id) }}">{{ $opportunity->name }}</td>
-                                <td>{{ \Carbon\Carbon::parse($opportunity->event_day)->format('m/d/Y') }}</td>
-                                <td>{{ \Carbon\Carbon::parse($opportunity->start_time)->format('g:i A') }}</td>
-                                <td>{{ \Carbon\Carbon::parse($opportunity->end_time)->format('g:i A') }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Opportunities</h3>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ route('volunteer_centers.opportunities.create', $volunteer_center->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Opportunity</a>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Event Date</td>
+                        <td>Start Time</td>
+                        <td>End Time</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($volunteer_center->opportunities as $opportunity)
+                        <tr>
+                            <td><a href="{{ URL::to('volunteer_centers/' . $volunteer_center->id . '/opportunities/' . $opportunity->id) }}">{{ $opportunity->name }}</td>
+                        <td>{{ \Carbon\Carbon::parse($opportunity->event_day)->format('m/d/Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($opportunity->start_time)->format('g:i A') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($opportunity->end_time)->format('g:i A') }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 @stop
