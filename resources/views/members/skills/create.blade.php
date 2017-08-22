@@ -9,7 +9,7 @@
                 {{Form::text('skill', null, array('class'=> 'form-control'))}}
 
                 {{Form::label('skill_level', 'Skill Level')}}
-                {{Form::number('skill_level', null, array('class'=> 'form-control'))}}
+                {{Form::selectRange('skill_level', 1, 10 , null,  array('class'=> 'form-control'))}}
 
                 <br>
                 <div class="row">
