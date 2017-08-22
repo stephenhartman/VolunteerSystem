@@ -33,3 +33,26 @@
     </table>
     {{ Form::close() }}
 </div>
+<div class="col-md-2">
+    <table class='table borderless'>
+        <thead>
+            <tr>
+                <td id="borderless">Opportunity Matches</td>
+        <tbody>
+            <tr>
+                <td>
+                    {{ Form::open(['method' => 'GET', 'url' => 'members', 'class' => 'form-inline navform col-md-3', 'role' => 'member', 'style'=> 'display:inline-block']) }}
+                    <select name="member_id">
+                        @foreach ($members as $member)
+                            <option value="{{ $member->id }}">{{ ucfirst($member->first_name) }} {{ ucfirst($member->last_name) }}</option>
+                        @endforeach
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {{ Form::close() }}
+</div>

@@ -48,4 +48,24 @@ class Member extends Model
     {
         return $this->hasMany(Skill::class);
     }
+
+    public function findMatch($opportunity, $member)
+    {
+        foreach($member->schedules as $schedule)
+        {
+            $opportunity_day = new Carbon($opportunity->event_day);
+            if ($opportunity_day->dayOfWeek == $schedule->day_id)
+            {
+                $o_start = new Carbon($opportunity->start_time);
+                $o_end = new Carbon($opportunity->end_time);
+                $s_start = new Carbon($schedule->start_time);
+                $s_end = new Carbon($schedule->end_time);
+                if ($o_start->gte($s_start) && $o_end->lte($s_end))
+                {
+                    return $opportunity;
+                }
+            }
+        }
+        return false;
+    }
 }

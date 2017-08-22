@@ -57,7 +57,7 @@ class OpportunityController extends Controller
             $collection = collect();
             foreach($members as $member)
             {
-                if($opportunity->findMatch($member))
+                if($opportunity->findMatch($opportunity, $member))
                 {
                     $collection->push($opportunity->findMatch($opportunity, $member));
                 }
