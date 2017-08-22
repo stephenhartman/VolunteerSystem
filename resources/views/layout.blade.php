@@ -11,10 +11,12 @@
     </head>
     <body>
         @include('_header')
-        @include('_messages')
-            <div id="main">
-                @yield('content')
-            </div>
-        @include('_footer')
+        <div class="container">
+            @include('_messages')
+                <div id="main">
+                    @yield('content')
+                </div>
+            @include('_footer')
+        </div>
     </body>
 </html>
