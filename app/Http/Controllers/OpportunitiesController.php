@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Session;
 
 class OpportunitiesController extends Controller
 {
-	 /**
+	
+	
+	    /**
      * Create a new controller instance.
      *
      * @return void

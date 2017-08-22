@@ -11,6 +11,17 @@ use Illuminate\Support\Facades\Session;
 
 class OpportunityController extends Controller
 {
+	    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+	
+	
     public function index()
     {
         $centers = VolunteerCenter::orderBy('name')->get();
