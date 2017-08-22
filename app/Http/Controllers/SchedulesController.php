@@ -54,9 +54,10 @@ class SchedulesController extends Controller
         $schedule->start_time = $request->start_time;
         $schedule->end_time = $request->end_time;
         $schedule->day_id = $request->day_id;
+        $schedule->notes = $request->notes;
         $schedule->member_id = $member->id;
 
-        $contact->save();
+        $schedule->save();
 
         Session::flash('success', 'The new schedule was successfully saved!');
 
