@@ -21,15 +21,15 @@ class Opportunity extends Model
         return $this->belongsToMany(Member::class);
     }
 
-    public function findMatch($member)
+    public function findMatch($opportunity, $member)
     {
-        $opportunity_day = new Carbon($this->event_day);
+        $opportunity_day = new Carbon($opportunity->event_day);
         foreach($member->schedules as $schedule)
         {
             if ($opportunity_day->dayOfWeek == $schedule->day_id)
             {
-                $o_start = new Carbon($this->start_time);
-                $o_end = new Carbon($this->end_time);
+                $o_start = new Carbon($opportunity->start_time);
+                $o_end = new Carbon($opportunity->end_time);
                 $s_start = new Carbon($schedule->start_time);
                 $s_end = new Carbon($schedule->end_time);
                 if ($o_start->gte($s_start) && $o_end->lte($s_end))

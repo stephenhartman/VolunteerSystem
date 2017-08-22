@@ -60,7 +60,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     {{ Form::open(['method' => 'DELETE', 'route' => ['members.destroy', $member->id], ]) }}
-                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $member->id, 'class' => 'btn btn-danger delete-member')) }}
+                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $member->id, 'class' => 'btn btn-danger delete-member', 'onclick' => "return confirm('Are you sure?')")) }}
                                     {{ Form::close() }}
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         {{ Form::open(['method' => 'DELETE', 'route' => ['members.emergency_contacts.destroy', $member, $contact]]) }}
-                                        {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $contact->id, 'class' => 'btn btn-danger delete-member')) }}
+                                        {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $contact->id, 'class' => 'btn btn-danger delete-member', 'onclick' => "return confirm('Are you sure?')")) }}
                                         {{ Form::close() }}
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
                                     {{ Form::open(['method' => 'DELETE', 'route' => ['members.interests.destroy', $member, $interest], ]) }}
-                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $interest->id, 'data-confirm' => 'Are you sure?', 'class' => 'btn btn-danger delete-button')) }}
+                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $interest->id, 'data-confirm' => 'Are you sure?', 'class' => 'btn btn-danger delete-button', 'onclick' => "return confirm('Are you sure?')")) }}
                                     {{ Form::close() }}
                                 </div>
                             </div>
@@ -188,7 +188,7 @@
                             <div class="row">
                                 <div class="col-md-12 ">
                                     {{ Form::open(['method' => 'DELETE', 'route' => ['members.skills.destroy', $member, $skill], ]) }}
-                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $skill->id, 'data-confirm' => 'Are you sure?', 'class' => 'btn btn-danger delete-button')) }}
+                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $skill->id, 'data-confirm' => 'Are you sure?', 'class' => 'btn btn-danger delete-button', 'onclick' => "return confirm('Are you sure?')")) }}
                                     {{ Form::close() }}
                                 </div>
                             </div>
@@ -239,7 +239,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     {{ Form::open(['method' => 'DELETE', 'route' => ['members.schedules.destroy', $member, $schedule, ]]) }}
-                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $schedule, 'class' => 'btn btn-danger delete-member')) }}
+                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $schedule, 'class' => 'btn btn-danger delete-member', 'onclick' => "return confirm('Are you sure?')")) }}
                                     {{ Form::close() }}
                                 </div>
                             </div>

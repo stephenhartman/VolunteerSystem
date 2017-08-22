@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     {{ Form::open(['method' => 'DELETE', 'route' => ['volunteer_centers.destroy', $volunteer_center->id], ]) }}
-                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $volunteer_center->id, 'class' => 'btn btn-danger delete-button')) }}
+                                    {{ Form::button('<i class="glyphicon glyphicon-trash"></i> Delete', array('type' => 'submit', 'data-id' => $volunteer_center->id, 'class' => 'btn btn-danger delete-button', 'onclick' => "return confirm('Are you sure?')")) }}
                                     {{ Form::close() }}
                                 </div>
                             </div>

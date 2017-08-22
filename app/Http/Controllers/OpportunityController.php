@@ -59,7 +59,7 @@ class OpportunityController extends Controller
             {
                 if($opportunity->findMatch($member))
                 {
-                    $collection->push($opportunity->findMatch($member));
+                    $collection->push($opportunity->findMatch($opportunity, $member));
                 }
             }
 
