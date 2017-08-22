@@ -120,7 +120,7 @@ class SchedulesController extends Controller
     {
         {
             $schedule->delete();
-            Session::flash('message', 'The skill was successfully deleted.');
+            Session::flash('message', 'The schedule was successfully deleted.');
             return redirect()->route('members.show', compact('member'));
         }
     }
