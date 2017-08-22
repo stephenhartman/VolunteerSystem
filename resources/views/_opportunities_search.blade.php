@@ -40,7 +40,7 @@
         <tbody>
             <tr>
                 <td>
-                    {{ Form::open(['method' => 'GET', 'url' => 'opportunities', 'class' => 'form-inline navform col-md-3', 'role' => 'opportunity', 'style'=> 'display:inline-block']) }}
+                    {{ Form::open(['method' => 'GET', 'url' => 'members', 'class' => 'form-inline navform col-md-3', 'role' => 'member', 'style'=> 'display:inline-block']) }}
                     <select name="opportunity_id">
                         @foreach ($opportunities as $opportunity)
                             <option value="{{ $opportunity->id }}">{{ ucfirst($opportunity->name) }}</option>

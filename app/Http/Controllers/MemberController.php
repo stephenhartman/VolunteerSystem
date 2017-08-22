@@ -20,7 +20,7 @@ class MemberController extends Controller
     {
         $this->middleware('auth');
     }
-	
+
     /**
      * Display a listing of the resource.
      *
@@ -57,12 +57,11 @@ class MemberController extends Controller
             $search = \Request::get('member');
             $opportunities = Opportunity::get_opportunities();
             $member = Member::where('id', $search)->get();
-            $collection = collect();
             foreach($opportunities as $opportunity)
             {
                 if($member->findMatch($opportunity, $member))
                 {
-                    $collection->push($member->findMatch($opportunity, $member));
+                    $collection->push($opportunity);
                 }
             }
 
@@ -72,7 +71,7 @@ class MemberController extends Controller
             }
             else
             {
-                return view('opportunities.index', compact('collection'));
+                return redirect()->route('opportunities.search', compact('collection'));
             }
         }
         else
@@ -251,5 +250,11 @@ class MemberController extends Controller
     {
         $members = Member::OrderBy('first_name')->get();
         return $members;
+    }
+
+    public function search($collection)
+    {
+        $members = $collection;
+        return view('members.index', compact('members'));
     }
 }
