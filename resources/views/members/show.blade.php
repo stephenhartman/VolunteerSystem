@@ -228,7 +228,21 @@
                     <tr>
                         <td>{{ \Carbon\Carbon::parse($schedule->start_time)->format('g:i A') }}</td>
                         <td>{{ \Carbon\Carbon::parse($schedule->end_time)->format('g:i A') }}</td>
-                        <td>{{ $schedule->day_id }}</td>
+                        @if($schedule->day_id == 1)
+                             <td>Monday</td>
+                        @elseif($schedule->day_id == 2)
+                            <td>Tuesday</td>
+                        @elseif($schedule->day_id == 3)
+                            <td>Wednesday</td>
+                        @elseif($schedule->day_id == 4)
+                            <td>Thursday</td>
+                        @elseif($schedule->day_id == 5)
+                            <td>Friday</td>
+                        @elseif($schedule->day_id == 6)
+                            <td>Saturday</td>
+                        @else
+                            <td>Sunday</td>
+                        @endif
                         <td>{{ $schedule->notes }}</td>
                         <td>
                             <div class="row">

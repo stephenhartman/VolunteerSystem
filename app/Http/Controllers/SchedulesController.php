@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Schedule;
 use App\Member;
 use Illuminate\Http\Request;
-use App\Member;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
