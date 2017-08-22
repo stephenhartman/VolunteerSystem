@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Member;
+use App\Opportunity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -49,6 +50,29 @@ class MemberController extends Controller
             if ($members->isEmpty())
             {
                 Session::flash('error', 'No volunteers found, please search again.');
+            }
+        }
+        elseif (\Request::get('member'))
+        {
+            $search = \Request::get('member');
+            $opportunities = Opportunity::get_opportunities();
+            $member = Member::where('id', $search)->get();
+            $collection = collect();
+            foreach($opportunities as $opportunity)
+            {
+                if($member->findMatch($opportunity, $member))
+                {
+                    $collection->push($member->findMatch($opportunity, $member));
+                }
+            }
+
+            if($collection->isEmpty())
+            {
+                Session::flash('error', 'No opportunities found, please search again.');
+            }
+            else
+            {
+                return view('opportunities.index', compact('collection'));
             }
         }
         else
@@ -221,5 +245,11 @@ class MemberController extends Controller
 
         Session::flash('message', 'The member was successfully deleted');
         return redirect()->route('members.index');
+    }
+
+    public static function get_members()
+    {
+        $members = Member::OrderBy('first_name')->get();
+        return $members;
     }
 }
