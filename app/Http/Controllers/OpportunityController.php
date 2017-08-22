@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Opportunity;
 use App\VolunteerCenter;
+use App\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -35,6 +36,29 @@ class OpportunityController extends Controller
             if ($opportunities->isEmpty())
             {
                 Session::flash('error', 'No opportunities found, please search again.');
+            }
+        }
+        elseif (\Request::get('opportunity'))
+        {
+            $search = \Request::get('opportunity');
+            $members = Member::all();
+            $opportunity = Opportunity::where('id', $search)->get();
+            $collection = collect();
+            foreach($members as $member)
+            {
+                if($opportunity->findMatch($member))
+                {
+                    $collection->push($opportunity->findMatch($member));
+                }
+            }
+
+            if($collection->isEmpty())
+            {
+                Session::flash('error', 'No members found, please search again.');
+            }
+            else
+            {
+                return view('members.index', compact('collection'));
             }
         }
         else

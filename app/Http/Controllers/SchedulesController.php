@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Schedule;
+use App\Member;
 use Illuminate\Http\Request;
 use App\Member;
 use Illuminate\Support\Facades\DB;
@@ -14,16 +15,17 @@ class SchedulesController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Member $member)
     {
-        //
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
     public function create(Member $member)
@@ -35,17 +37,20 @@ class SchedulesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Member $member, Schedule $schedule)
     {
+        //validate
         $this->validate($request, array(
             'start_time' => 'required',
             'end_time' => 'required',
-            'day_id' => 'required'
-
+            'day_id' => 'required',
         ));
 
+        //store
+        $schedule = new Schedule;
         $schedule->start_time = $request->start_time;
         $schedule->end_time = $request->end_time;
         $schedule->day_id = $request->day_id;
@@ -62,10 +67,11 @@ class SchedulesController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  \App\Member  $member
      * @param  \App\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function show(Member $member)
+    public function show(Member $member, Schedule $schedule)
     {
 
     }
@@ -73,6 +79,7 @@ class SchedulesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  \App\Member  $member
      * @param  \App\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
@@ -85,6 +92,7 @@ class SchedulesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Member  $member
      * @param  \App\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
@@ -113,6 +121,7 @@ class SchedulesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \App\Member  $member
      * @param  \App\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */

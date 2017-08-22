@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon;
 
 class Opportunity extends Model
 {
@@ -18,5 +19,25 @@ class Opportunity extends Model
     public function members()
     {
         return $this->belongsToMany(Member::class);
+    }
+
+    public function findMatch($member)
+    {
+        $opportunity_day = new Carbon($this->event_day);
+        foreach($member->schedules as $schedule)
+        {
+            if ($opportunity_day->dayOfWeek == $schedule->day_id)
+            {
+                $o_start = new Carbon($this->start_time);
+                $o_end = new Carbon($this->end_time);
+                $s_start = new Carbon($schedule->start_time);
+                $s_end = new Carbon($schedule->end_time);
+                if ($o_start->gte($s_start) && $o_end->lte($s_end))
+                {
+                    return $member;
+                }
+            }
+        }
+        return false;
     }
 }
