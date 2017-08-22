@@ -59,9 +59,9 @@ class SchedulesController extends Controller
 
         $schedule->save();
 
-        Session::flash('success', 'The new schedule was successfully saved!');
+        Session::flash('success', 'The schedule was successfully created!');
 
-        return redirect()->route('members.show', $member->id);
+        return redirect()->route('members.show', compact('member'));
     }
 
     /**
