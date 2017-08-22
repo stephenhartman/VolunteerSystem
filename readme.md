@@ -74,7 +74,8 @@ brew install node
 - Start daemon `mysqld` or use GUI tool to start the server on localhost
 - Create the database `mysql> create database vol_db;`
 - Make sure you create the user, example `mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';`
-- Grant permissions for that user `mysql> GRANT ALL PRIVILEGES ON vol_db . * TO 'newuser'@'localhost';`  The first variable after `ON` is the database and the second variable after `.` is the table, * for all tables.
+- Grant permissions for that user `mysql> GRANT ALL PRIVILEGES ON vol_db . * TO 'newuser'@'localhost';`  
+    - The first variable after `ON` is the database and the second variable after `.` is the table, * for all tables.
 - Reset permissions `mysql> FLUSH PRIVILEGES;`
 8. Migrate and seed database from shell
 ```
