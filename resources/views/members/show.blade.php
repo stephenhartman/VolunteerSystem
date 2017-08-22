@@ -208,13 +208,14 @@
             <a href="{{ route('members.schedules.create', $member->id) }}" class="btn btn-block btn-primary" style="margin-top: 18px">New Schedule</a>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-md-12">
             <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
                     <td>Start Time</td>
-                    <td>End Time/td>
+                    <td>End Time</td>
                     <td>Day</td>
                     <td>Notes</td>
                     <td id="borderless"></td>
@@ -223,8 +224,8 @@
                 <tbody>
                 @foreach ($member->schedules as $schedule)
                     <tr>
-                        <td>{{ $schedule->start_time }}</td>
-                        <td>{{ $schedule->end_time }}</td>
+                        <td>{{ \Carbon\Carbon::parse($schedule->start_time)->format('g:i A') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($schedule->end_time)->format('g:i A') }}</td>
                         <td>{{ $schedule->day_id }}</td>
                         <td>{{ $schedule->notes }}</td>
                         <td>
