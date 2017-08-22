@@ -44,6 +44,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+		   
+    /**end of modified part**/
+
+ 			
         return parent::render($request, $exception);
     }
 
@@ -60,6 +64,20 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return redirect()->guest(route('login'));
+		
+        $guard = array_get($exception->guards(), 0);
+
+        switch ($guard) {
+            case 'members':
+                $login = 'login';
+                break;
+            default:
+                $login = 'login';
+                break;
+        }
+		
+		return redirect()->guest($login);
+
+        //return redirect()->guest(route('login'));
     }
 }
