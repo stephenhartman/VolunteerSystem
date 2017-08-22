@@ -40,7 +40,7 @@ class SchedulesController extends Controller
      * @param  \App\Member  $member
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Member $member)
+    public function store(Request $request, Member $member, Schedule $schedule)
     {
         //validate
         $this->validate($request, array(
