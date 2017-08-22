@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
         $members = factory(App\Member::class, 50)
             ->create()
             ->each(function ($m) {
-            $m->schedules()->save(factory(App\Schedule::class)->make());
+            for($i = 1; $i < 6; $i++) {
+                $m->schedules()->save(factory(App\Schedule::class)->make(['day_id' => $i]));
+            }
         });
         $interests = factory(App\Interests::class, 100)->create();
         $contacts = factory(App\EmergencyContact::class, 50)->create();
