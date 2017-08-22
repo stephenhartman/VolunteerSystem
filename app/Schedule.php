@@ -10,7 +10,7 @@ class Schedule extends Model
         'start_time', 'end_time', 'notes', 'member_id', 'day_id',
     ];
 
-    public function members()
+    public function member()
     {
         return $this->belongsTo(Member::class);
     }
