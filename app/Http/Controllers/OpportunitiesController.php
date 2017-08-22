@@ -11,6 +11,16 @@ use Illuminate\Support\Facades\Session;
 
 class OpportunitiesController extends Controller
 {
+	 /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+	
     protected $dates = ['created_at', 'updated_at', 'event_day'];
     /**
      * Display a listing of the resource.
