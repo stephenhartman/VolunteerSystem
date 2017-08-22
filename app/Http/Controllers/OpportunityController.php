@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 
 class OpportunityController extends Controller
 {
-	    /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -21,8 +21,7 @@ class OpportunityController extends Controller
     {
         $this->middleware('auth');
     }
-	
-	
+
     public function index()
     {
         $centers = VolunteerCenter::orderBy('name')->get();
@@ -54,22 +53,20 @@ class OpportunityController extends Controller
             $search = \Request::get('opportunity');
             $members = Member::get_members();
             $opportunity = Opportunity::where('id', $search)->get();
-            $collection = collect();
             foreach($members as $member)
             {
                 if($opportunity->findMatch($opportunity, $member))
                 {
-                    $collection->push($opportunity->findMatch($opportunity, $member));
+                    $collection->push($member);
                 }
             }
-
             if($collection->isEmpty())
             {
                 Session::flash('error', 'No members found, please search again.');
             }
             else
             {
-                return view('members.index', compact('collection'));
+                return redirect()->route('members.search', compact('collection'));
             }
         }
         else
@@ -125,5 +122,11 @@ class OpportunityController extends Controller
     {
         $opportunities = Opportunity::OrderBy('name')->get();
         return $opportunities;
+    }
+
+    public function search($collection)
+    {
+        $opportunities = $collection;
+        return view('opportunities.index', compact('opportunities'));
     }
 }
