@@ -1,10 +1,10 @@
 @if (Auth::guard('web')->check())
   <p class="text-success">
-    You are Logged In as a <strong>USER</strong>
+    You are logged in as an <strong>Admin</strong>.
   </p>
 @else
   <p class="text-danger">
-    You are Logged Out as a <strong>USER</strong>
+    You are logged out as an <strong>Admin</strong>.
   </p>
 @endif
 

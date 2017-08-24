@@ -11,7 +11,7 @@
     </head>
     <body>
         @include('_header')
-        <div class="container">
+        <div class="container-fluid">
             @include('_messages')
                 <div id="main">
                     @yield('content')
