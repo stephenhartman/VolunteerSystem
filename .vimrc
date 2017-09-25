@@ -9,7 +9,7 @@ map <leader>gf :CtrlPClearAllCaches<cr> :CtrlP features_wip<cr>
 
 "Plug for php"
 call plug#begin()
-Plug 'tpope/vim-dispatch' | Plug 'tpope/vim-projectionist' | Plug 'noahfrederick/vim-composer' | Plug 'noahfrederick/vim-laravel' | Plug 'jwalton512/vim-blade' | Plug 'StanAngeloff/php.vim'
+Plug 'tpope/vim-dispatch' | Plug 'tpope/vim-projectionist' | Plug 'noahfrederick/vim-composer' | Plug 'noahfrederick/vim-laravel' | Plug 'jwalton512/vim-blade' | Plug 'StanAngeloff/php.vim' | Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade
